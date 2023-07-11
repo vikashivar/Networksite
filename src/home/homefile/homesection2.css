@@ -1,0 +1,30 @@
+.subtitle {
+  color: #393939;
+  font-family: Geomanist, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem;
+}
+.description {
+  color: #8f8f98;
+  font-family: Geomanist, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem;
+}
+.learnmore {
+  font-family: Geomanist, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.625rem;
+}
+
+@media (min-width: 992px) {
+  .homesectionmargin1 {
+    width: 28rem;
+    margin-left: 3rem;
+  }
+}

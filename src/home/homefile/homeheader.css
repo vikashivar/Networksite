@@ -73,3 +73,39 @@ a {
   max-height: 43rem;
   height: 100%;
 }
+
+@media (min-width: 1200px) {
+  #backgroundHeight {
+    height: 45rem;
+  }
+}
+
+@media (min-width: 1088px) and (max-width: 1199px) {
+  #backgroundHeight {
+    height: 51rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1087px) {
+  #backgroundHeight {
+    height: 58rem;
+  }
+}
+
+@media (min-width: 705px) and (max-width: 767px) {
+  #backgroundHeight {
+    height: 79rem;
+  }
+}
+
+@media (min-width: 548px) and (max-width: 704px) {
+  #backgroundHeight {
+    height: 83rem;
+  }
+}
+
+@media (max-width: 547px) {
+  #backgroundHeight {
+    height: 82rem;
+  }
+}

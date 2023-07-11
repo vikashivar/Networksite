@@ -12,14 +12,14 @@ function Homeheader(props) {
   return (
     <div className="postition-relative">
       <div
-        className="position-absolute"
+        id="backgroundHeight"
+        className="position-absolute backgroundHeight"
         style={{
           background: props.hhb,
           maxWidth: "81rem",
 
           width: "100%",
-          height: "62rem",
-          top: "-100%",
+          top: "-45px",
 
           transform: "skew(0deg, -4deg)",
         }}
@@ -52,7 +52,10 @@ function Homeheader(props) {
             </div>
           </div>
         </div>
-        <div className="d-flex " style={{ marginTop: "3.5rem" }}>
+        <div
+          className="d-flex flex-md-row flex-column justify-contetn-md-between justify-content-center "
+          style={{ marginTop: "3.5rem" }}
+        >
           <div className="mt-5">
             <div className="notABank">
               {props.notABank0}
