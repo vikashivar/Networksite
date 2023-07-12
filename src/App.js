@@ -5,6 +5,9 @@ import "./home/homefile/homeheader.css";
 import { createContext, useEffect, useState } from "react";
 import "./home/homefile/headersection1.css";
 import "./home/homefile/homesection2.css";
+import "./home/homefile/homesection3.css";
+import "./home/homefile/homesection4.css";
+import "./home/homefile/homesection5.css";
 
 const homeapi = createContext();
 

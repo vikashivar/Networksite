@@ -9,7 +9,7 @@ import forbb from "../homephoto/forbb.png";
 import forss from "../homephoto/forss.png";
 function Homesection2(props) {
   const section2 = useContext(homeapi);
-  console.log(section2.home.data.attributes.UsecaseCard[0].title);
+  // console.log(section2.home.data.attributes.UsecaseCard[0].title);
 
   const homesection = [
     {
@@ -95,16 +95,25 @@ function Homesection2(props) {
                   lineHight: "normal",
                 }}
               >
-                for <span style={{ color: a.color }}>{a.title}</span>
+                for{" "}
+                <span style={{ color: a.color, fontWeight: 600 }}>
+                  {a.title}
+                </span>
               </div>
               <div className="subtitle">{a.subtitle}</div>
-              <div className="description mt-5">{a.description}</div>
+              <div className="description mt-5 text-lg-start text-center">
+                {a.description}
+              </div>
               <a
                 href={a.linkUrl}
                 style={{ color: a.color }}
-                className="learnmore mt-4 d-inline-block"
+                className="learnmore mt-4 d-flex justify-content-start align-items-center "
               >
-                Learn More <span></span>
+                <span>Learn More</span>
+                <i
+                  className="fa-solid fa-arrow-left-long fa-rotate-180 fa-sm ms-2"
+                  style={{ color: a.color }}
+                ></i>
               </a>
             </div>
           </div>

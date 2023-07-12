@@ -3,11 +3,13 @@ import Homeheader from "./homeheader";
 import { homeapi } from "../../App";
 import Headersection1 from "./headersection1";
 import Homesection2 from "./homesection2";
+import Homesection3 from "./homesection3";
+import Homesection4 from "./homesection4";
+import Homesection5 from "./homesection5";
 
 function Home() {
   const hoemapi = useContext(homeapi);
   const notABank = hoemapi.home.data.attributes.hero.heading.split("///");
-  console.log(notABank);
 
   return (
     <>
@@ -25,6 +27,9 @@ function Home() {
       <div>
         <Headersection1></Headersection1>
         <Homesection2></Homesection2>
+        <Homesection3></Homesection3>
+        <Homesection4></Homesection4>
+        <Homesection5></Homesection5>
       </div>
     </>
   );

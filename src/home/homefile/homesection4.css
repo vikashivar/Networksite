@@ -1,0 +1,38 @@
+.istime {
+  color: #393939;
+  font-family: Geomanist, sans-serif;
+  font-size: 3.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 3.75rem;
+}
+.breaking {
+  color: #393939;
+  font-family: Geomanist, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem;
+}
+.payments {
+  font-family: Geomanist, sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.make {
+  color: #8f8f98;
+  font-family: Geomanist, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.75rem;
+}
+
+@media (min-width: 992px) {
+  .timebreaking {
+    width: 59rem;
+    margin-top: -3rem;
+  }
+}
