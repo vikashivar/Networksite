@@ -8,6 +8,8 @@ import "./home/homefile/homesection2.css";
 import "./home/homefile/homesection3.css";
 import "./home/homefile/homesection4.css";
 import "./home/homefile/homesection5.css";
+import "./home/homefile/homesection6.css";
+import "./home/homefile/homesection7.css";
 
 const homeapi = createContext();
 

@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import goodphone from "../homephoto/goodphone.png";
 import right from "../homephoto/right.png";
+import vector from "../homephoto/Vector 5.png";
 import { homeapi } from "../../App";
 
 function Homesection5() {
   const section5 = useContext(homeapi);
   const homesection5 = section5.home.data.attributes.AboutWork;
   const hoo = homesection5.title.split("///");
-  console.log(hoo);
 
   return (
     <div className="" style={{ marginTop: "6rem" }}>
@@ -30,7 +30,21 @@ function Homesection5() {
             </div>
           </div>
 
-          <div className="d-flex  flex-column work123 mt-5">
+          <div
+            className="d-flex  flex-column work123 mt-5 position-relative"
+            style={{ zIndex: "2" }}
+          >
+            <img
+              className="line"
+              src={vector}
+              style={{
+                position: "absolute",
+                width: "2px",
+                top: "35px",
+                left: "12px",
+                zIndex: "-1",
+              }}
+            ></img>
             <div className="work d-flex mt-3">
               <div>
                 <img

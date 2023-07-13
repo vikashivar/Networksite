@@ -6,6 +6,8 @@ import Homesection2 from "./homesection2";
 import Homesection3 from "./homesection3";
 import Homesection4 from "./homesection4";
 import Homesection5 from "./homesection5";
+import Homesection6 from "./homesection6";
+import Homesection7 from "./homesection7";
 
 function Home() {
   const hoemapi = useContext(homeapi);
@@ -30,6 +32,8 @@ function Home() {
         <Homesection3></Homesection3>
         <Homesection4></Homesection4>
         <Homesection5></Homesection5>
+        <Homesection6></Homesection6>
+        <Homesection7></Homesection7>
       </div>
     </>
   );

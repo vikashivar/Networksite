@@ -9,30 +9,10 @@ function Homesection3() {
 
   const section3 = useContext(homeapi);
   const byCard = section3.home.data.attributes.ServicedByCard;
-
-  const homesection3 = [
-    {
-      serviceName: byCard[0].serviceName,
-      serviceDetails: byCard[0].serviceDetails,
-    },
-    {
-      serviceName: byCard[1].serviceName,
-      serviceDetails: byCard[1].serviceDetails,
-    },
-    {
-      serviceName: byCard[2].serviceName,
-      serviceDetails: byCard[2].serviceDetails,
-    },
-    {
-      serviceName: byCard[3].serviceName,
-      serviceDetails: byCard[3].serviceDetails,
-    },
-  ];
-
-  const array = homesection3.slice(inc, dec);
+  const array = byCard.slice(inc, dec);
 
   function plush() {
-    if (inc === 3) {
+    if (inc === byCard.length - 1) {
       setInc(3);
       setDec(4);
     } else {
@@ -40,9 +20,6 @@ function Homesection3() {
       setDec(dec + 1);
     }
   }
-  console.log("q:", array);
-  console.log(inc);
-  console.log(dec);
 
   function minus() {
     if (inc === 0) {

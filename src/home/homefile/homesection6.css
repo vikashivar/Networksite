@@ -1,0 +1,79 @@
+.leatest {
+  color: #000;
+  font-family: Geomanist, sans-serif;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.see {
+  color: #4e59e7;
+  font-family: Geomanist, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem;
+  cursor: pointer;
+}
+.date {
+  color: #000;
+  text-align: center;
+  font-family: Geomanist, sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.375rem;
+}
+.loren {
+  color: #000;
+  font-family: Geomanist, sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem;
+  text-transform: lowercase;
+}
+.integer {
+  color: #4b4b4b;
+  font-family: Geomanist, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem;
+}
+.cardnews {
+  border-radius: 1.25rem;
+  border: 3px solid #fff;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.08);
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .cardnews {
+    width: 247px;
+  }
+}
+.download {
+  color: #000;
+  font-family: Geomanist, sans-serif;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 3.75rem;
+}
+.wallet {
+  color: #4e59e7;
+  font-family: Geomanist, sans-serif;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 3.75rem;
+}
+.ios {
+  color: #4b4b4b;
+  font-family: Geomanist, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem; /* 166.667% */
+}

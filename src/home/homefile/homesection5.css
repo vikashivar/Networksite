@@ -19,4 +19,13 @@
     width: 30.25rem;
     height: 23.56rem;
   }
+  .line {
+    height: 15rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .line {
+    height: 11rem;
+  }
 }
