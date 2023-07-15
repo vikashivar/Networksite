@@ -1,0 +1,93 @@
+.network {
+  color: #4b4b4b;
+  font-family: Geomanist, sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem; /* 214.286% */
+  letter-spacing: 0.02625rem;
+}
+.footerheading {
+  color: #393939;
+  font-family: Geomanist, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.footeraccount {
+  color: #8f8f98;
+  font-family: Geomanist, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem; /* 187.5% */
+}
+.footerend {
+  color: #4b4b4b;
+  text-align: right;
+  font-family: Geomanist, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem; /* 187.5% */
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .footer {
+    height: 441px;
+  }
+}
+
+@media (min-width: 576x) and (max-width: 667px) {
+  .footer {
+    height: 441px;
+  }
+}
+
+@media (max-width: 575px) {
+  .footer {
+    height: 376px;
+  }
+}
+@media (min-width: 1100px) {
+  .footerend {
+    margin-top: 10%;
+  }
+}
+
+@media (min-width: 930px) and (max-width: 1099px) {
+  .footerend {
+    margin-top: 8%;
+  }
+}
+@media (min-width: 800px) and (max-width: 929px) {
+  .footerend {
+    margin-top: 6%;
+  }
+}
+@media (min-width: 750px) and (max-width: 799px) {
+  .footerend {
+    margin-top: 5%;
+  }
+}
+@media (min-width: 700px) and (max-width: 749px) {
+  .footerend {
+    margin-top: 4%;
+  }
+}
+@media (min-width: 650px) and (max-width: 699px) {
+  .footerend {
+    margin-top: 3%;
+  }
+}
+@media (min-width: 610px) and (max-width: 649px) {
+  .footerend {
+    margin-top: 2%;
+  }
+}
+@media (min-width: 609px) and (max-width: 576px) {
+  .footerend {
+    margin-top: 3%;
+  }
+}

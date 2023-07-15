@@ -36,13 +36,13 @@ function Homeheader(props) {
           <div className=" hhnavbar align-self-center d-flex ">
             <div className="d-flex flex-sm-row flex-column justify-content-sm-between justify-content-center align-items-center flex-nowrap">
               <div>
-                <Link to="individual" className="me-4">
+                <Link to="/individual" className="me-4">
                   Individuals
                 </Link>
-                <Link to="bussiness" className="me-4">
+                <Link to="/bussiness" className="me-4">
                   Businesses
                 </Link>
-                <Link to="service" className="me-4">
+                <Link to="/service" className="me-4">
                   Service Providers
                 </Link>
               </div>

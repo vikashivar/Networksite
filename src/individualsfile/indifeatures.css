@@ -1,0 +1,32 @@
+.featureheading {
+  color: #393939;
+  font-family: Geomanist, sans-serif;
+  font-size: 3.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.featuresubheadign {
+  color: #393939;
+  font-family: Geomanist, sans-serif;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.feature {
+  color: #8f8f98;
+  font-family: Geomanist, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem; /* 166.667% */
+}
+
+.reacttabs {
+  list-style-type: none;
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow: 0px 0px 50px 0px rgba(78, 89, 231, 0.1);
+}

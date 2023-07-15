@@ -1,4 +1,4 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./home/homefile/home";
 import "./home/homefile/homeheader.css";
@@ -10,6 +10,10 @@ import "./home/homefile/homesection4.css";
 import "./home/homefile/homesection5.css";
 import "./home/homefile/homesection6.css";
 import "./home/homefile/homesection7.css";
+import "./home/homefile/footer.css";
+import "./individualsfile/indiheader.css";
+import Individual from "./individualsfile/individual";
+import "./individualsfile/indifeatures.css";
 
 const homeapi = createContext();
 
@@ -32,9 +36,13 @@ function App() {
     home && (
       <homeapi.Provider value={{ home }}>
         <BrowserRouter>
-          <div className="App">
-            <Home></Home>
-          </div>
+          <Routes>
+            <Route path="/" element={<Home></Home>}></Route>
+            <Route
+              path="/individual"
+              element={<Individual></Individual>}
+            ></Route>
+          </Routes>
         </BrowserRouter>
       </homeapi.Provider>
     )

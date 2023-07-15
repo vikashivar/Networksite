@@ -1,0 +1,73 @@
+.Anew {
+  color: #393939;
+  font-family: Geomanist, sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+}
+.Newage {
+  color: #393939;
+  text-align: center;
+  font-family: Geomanist, sans-serif;
+  font-size: 3.75rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.makes {
+  color: #393939;
+  text-align: center;
+  font-family: Geomanist, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem; /* 166.667% */
+}
+.today {
+  color: #393939;
+  font-family: Geomanist, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem; /* 166.667% */
+  text-align: center;
+  margin-top: 4rem;
+}
+
+@media (min-width: 815px) {
+  #indibackheight {
+    height: 45rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 814px) {
+  #indibackheight {
+    height: 47rem;
+  }
+}
+@media (min-width: 611px) and (max-width: 767px) {
+  #indibackheight {
+    height: 49rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 610px) {
+  #indibackheight {
+    height: 53rem;
+  }
+}
+@media (min-width: 454px) and (max-width: 575px) {
+  #indibackheight {
+    height: 55rem;
+  }
+}
+@media (min-width: 433px) and (max-width: 453px) {
+  #indibackheight {
+    height: 57rem;
+  }
+}
+@media (max-width: 432px) {
+  #indibackheight {
+    height: 63rem;
+  }
+}
