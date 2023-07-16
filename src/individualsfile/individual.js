@@ -4,6 +4,7 @@ import gp from "../home/homephoto/gp.png";
 import ap from "../home/homephoto/ap.png";
 import Indifeatures from "./indifeatures";
 import Features from "./features";
+import Indizero from "./indizero";
 
 const indistore = createContext();
 
@@ -65,6 +66,9 @@ function Individual() {
           ></Indiheader>
 
           <Features></Features>
+          <div>
+            <Indizero color="#8E5FF5"></Indizero>
+          </div>
         </div>
       </indistore.Provider>
     )

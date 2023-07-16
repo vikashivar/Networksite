@@ -17,7 +17,6 @@ import liq from "./indiphoto/liq.png";
 
 function Features() {
   const feat = useContext(indistore);
-  console.log(feat.indi.data.attributes.features);
   const featurelist = [
     {
       name: feat.indi.data.attributes.features[0].name,
@@ -56,19 +55,134 @@ function Features() {
       heading0: "Create ",
       heading1: "Verified digital ",
       heading2: "Wallets in seconds.",
-      direction: "d-row",
-      maxwidth: "33.68rem",
-      maxheight: "32.81rem",
+      direction: "flex-lg-row flex-column-reverse",
+      maxwidth: "28.62rem",
+      maxheight: "31.24rem",
       subheading1: "Multi Currency",
       subheading2: " Accounts",
-      detail:
+      detail: [
         "Create a global, multi-currency account in seconds with open and democratic access for all.",
+      ],
+      img: sa,
+    },
+  ];
+
+  const dataheading2 = feat.indi.data.attributes.features[1].title.split("///");
+  const data2 = [
+    {
+      heading1: dataheading2[0],
+      heading2: dataheading2[1],
+      directioh: "flex-lg-row flex-column-reverse",
+      maxwidth: "28.625rem",
+      maxheight: "31.24rem",
+      subheading1: "Self Custody",
+      subheading2: " of Assets",
+      detail: [
+        "Stop paying high fees to banks for custody of your assets. Keep your assets secure with Verified self-custody.",
+      ],
+      img: ga,
+    },
+  ];
+
+  const dataheading3 = feat.indi.data.attributes.features[2].title.split("///");
+  const data3 = [
+    {
+      heading1: dataheading3[0],
+      heading2: dataheading3[1],
+      direction: "flex-lg-row flex-column-reverse",
+      maxwidth: "26.68rem",
+      maxheight: "30.125rem",
+      subheading1: <span style={{ fontWeight: 400 }}>Deposit in </span>,
+      subheading2: <span style={{ fontWeight: 700 }}>Stable Currencies</span>,
+      detail: [
+        "Keep fiat currency safe into your Verified Network account.",
+        "Avoid currency depreciation and convert local fiat currency into a stable global currency at a lower cost.",
+      ],
+      img: max,
+    },
+  ];
+
+  const dataheading4 = feat.indi.data.attributes.features[3].title.split("///");
+  const data4 = [
+    {
+      heading1: dataheading4[0],
+      heading2: dataheading4[1],
+      direction: "flex-lg-row flex-column-reverse",
+      maxwidth: "25.56rem",
+      maxheight: "22.31rem",
+      subheading1: "Multi-Country",
+      subheading2: " Cards",
+      detail: [
+        "Make card payments from your blockchain account on the Verified Network.",
+        "Pay for shopping, travel, entertainment and more with a standard Visa debit card.",
+      ],
+      img: ptac,
+    },
+    {
+      direction: "flex-lg-row-reverse flex-column-reverse",
+      maxwidth: "29.43rem",
+      maxheight: "27.56rem",
+      subheading1: "Peer to Peer",
+      subheading2: " Payments",
+      detail: [
+        "Transfer money to friends and family across the world for free.",
+        "Stop paying hefty commissions for foreign exchange conversions and withdrawals.",
+      ],
+      img: ptp,
+    },
+  ];
+  const dataheading5 = feat.indi.data.attributes.features[4].title.split("///");
+  const data5 = [
+    {
+      heading1: dataheading5[0],
+      heading2: dataheading5[1],
+      direction: "flex-lg-row flex-column-reverse",
+      maxwidth: "24rem",
+      maxheight: "35.31rem",
+      subheading1: "Higher Return",
+      subheading2: " Investments",
+      detail: [
+        "Earn interest on your assets by purchasing investment products on the Verified Network.",
+        "Benefit from higher interest rates outside your local currency on investments into financial products across the globe.",
+      ],
+      img: hr,
+    },
+    {
+      direction: "flex-lg-row-reverse flex-column-reverse",
+      maxwidth: "24rem",
+      maxheight: "35.625rem",
+      subheading1: "Private Investment",
+      subheading2: " Opportunities",
+      detail: [
+        "Explore private investment opportunities from the best asset managers.",
+        "Access to the best investment deals without opening an expensive wealth account.",
+      ],
+      img: pi,
+    },
+
+    {
+      direction: "flex-lg-row flex-column-reverse",
+      maxwidth: "25.31rem",
+      maxheight: "36.125rem",
+      subheading1: "Liquidity",
+      subheading2: " For Private Investments",
+      detail: [
+        "Sell your private investments directly and get access to liquidity when you need it – without having to pay expensive brokerage for trading investments. ",
+      ],
+      img: liq,
     },
   ];
 
   return (
     <div>
-      <Indifeatures list={featurelist} datalist={data1}></Indifeatures>
+      <Indifeatures
+        list={featurelist}
+        datalist1={data1}
+        datalist2={data2}
+        datalist3={data3}
+        datalist4={data4}
+        datalist5={data5}
+      ></Indifeatures>
     </div>
   );
 }

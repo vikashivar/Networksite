@@ -1,9 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Featurescom from "./featurescom";
 
 function Indifeatures(props) {
+  const [zzz, setZZZ] = useState();
+
+  console.log();
   return (
     <div style={{ marginTop: "6rem" }}>
       <div className="mx-5">
@@ -11,7 +14,7 @@ function Indifeatures(props) {
           className={["mx-4"]}
           focusTabOnClick={false}
           onSelect={(index) => {
-            console.log(index);
+            setZZZ(index);
           }}
         >
           <TabList
@@ -26,7 +29,7 @@ function Indifeatures(props) {
           >
             {props.list.map((a, b) => {
               return (
-                <Tab key={b}>
+                <Tab key={b} style={{ cursor: "pointer" }}>
                   <div className="d-flex flex-column align-items-center">
                     <img
                       src={a.img}
@@ -36,6 +39,7 @@ function Indifeatures(props) {
                     <div className="mt-3 mb-2">{a.name}</div>
                     <div
                       style={{
+                        display: zzz === b ? "block" : "none",
                         borderRadius: "0.3125rem",
                         background: "#4e59e7",
                         width: "3.8125rem",
@@ -49,19 +53,19 @@ function Indifeatures(props) {
           </TabList>
 
           <TabPanel>
-            <Featurescom datalist1={props.datalist}></Featurescom>
+            <Featurescom datalist={props.datalist1}></Featurescom>
           </TabPanel>
           <TabPanel>
-            <h2>Any content 1</h2>
+            <Featurescom datalist={props.datalist2}></Featurescom>
           </TabPanel>
           <TabPanel>
-            <h2>Any content 3</h2>
+            <Featurescom datalist={props.datalist3}></Featurescom>
           </TabPanel>
           <TabPanel>
-            <h2>Any content 4</h2>
+            <Featurescom datalist={props.datalist4}></Featurescom>
           </TabPanel>
           <TabPanel>
-            <h2>Any content 4</h2>
+            <Featurescom datalist={props.datalist5}></Featurescom>
           </TabPanel>
         </Tabs>
       </div>

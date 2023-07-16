@@ -7,21 +7,23 @@ import ga from "./indiphoto/ga.png";
 function Featurescom(props) {
   return (
     <div>
-      {props.datalist1.map((a) => {
-        return (
-          <div className="mx-5" style={{ marginTop: "7rem" }}>
-            <div className="featureheading">
-              {a?.heading0}
-              <span style={{ color: "#8e5ff5", fontWeight: "700" }}>
-                {a.heading1}
-              </span>{" "}
-              {a.heading2}
-            </div>
+      <div className="mx-lg-5" style={{ marginTop: "7rem" }}>
+        <div className="featureheading">
+          {props.datalist[0]?.heading0}
+          <span style={{ color: "#8e5ff5", fontWeight: "700" }}>
+            {props.datalist[0].heading1}
+          </span>{" "}
+          {props.datalist[0].heading2}
+        </div>
+        {props.datalist.map((a, b) => {
+          return (
             <div
-              className={`${a.direction} d-flex justify-content-between mt-5 pt-3`}
+              key={b}
+              className={` d-flex justify-content-between align-items-center ${a.direction} mt-5 pt-3`}
             >
               <img
-                src={ga}
+                className="mt-lg-0 mt-4"
+                src={a.img}
                 style={{
                   maxWidth: a.maxwidth,
                   maxHeight: a.maxheight,
@@ -31,18 +33,26 @@ function Featurescom(props) {
               ></img>
               <div style={{ width: "30rem", marginTop: "9%" }}>
                 <div className="featuresubheadign">
-                  <span style={{ fontWeight: 700 }}>{a.subheading1}</span>
-                  {a.subheading2}
+                  <span className="" style={{ fontWeight: 700 }}>
+                    {a.subheading1}
+                  </span>
+                  <span className="">{a.subheading2}</span>
                 </div>
-                <div className="d-flex mt-5">
-                  <div>
-                    <img
-                      src={bright}
-                      alt=""
-                      style={{ width: "1.68rem", height: "1.68" }}
-                    />
-                  </div>
-                  <div className="feature ms-3 ">{a.detail}</div>
+                <div className="mt-5">
+                  {a.detail.map((aa, bb) => {
+                    return (
+                      <div key={bb} className="d-flex ">
+                        <div>
+                          <img
+                            src={bright}
+                            alt=""
+                            style={{ width: "1.68rem", height: "1.68" }}
+                          />
+                        </div>
+                        <div className="feature ms-3 ">{aa}</div>
+                      </div>
+                    );
+                  })}
                 </div>
                 <Link
                   className="d-flex align-items-center mt-4"
@@ -68,9 +78,9 @@ function Featurescom(props) {
                 </Link>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }

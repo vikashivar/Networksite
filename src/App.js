@@ -14,6 +14,7 @@ import "./home/homefile/footer.css";
 import "./individualsfile/indiheader.css";
 import Individual from "./individualsfile/individual";
 import "./individualsfile/indifeatures.css";
+import "./individualsfile/indizero.css";
 
 const homeapi = createContext();
 
