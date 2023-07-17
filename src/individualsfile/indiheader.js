@@ -16,7 +16,7 @@ function Indiheader(props) {
           style={{
             // --------------------------------------------
             background: props.hhb,
-            maxWidth: "81rem",
+            maxWidth: "90rem",
 
             width: "100%",
             top: "-45px",

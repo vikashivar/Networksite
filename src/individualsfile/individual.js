@@ -8,6 +8,7 @@ import Indizerorops from "./indizerorops";
 import Indiquestion from "./indiquestion";
 import Download from "./Download";
 import Homesection7 from "../home/homefile/homesection7";
+import Footer from "../home/homefile/footer";
 
 const indistore = createContext();
 
@@ -75,6 +76,7 @@ function Individual() {
             <Download></Download>
           </div>
           <Homesection7></Homesection7>
+          <Footer></Footer>
         </div>
       </indistore.Provider>
     )

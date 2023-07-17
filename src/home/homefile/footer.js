@@ -9,22 +9,14 @@ function Footer() {
   const footerdata = footerr.home.data.attributes.UsecaseCard;
 
   return (
-    <div className="footer overflow-hidden">
-      <div
-        className="d-flex flex-column justify-content-sm-start "
-        style={{
-          background: `url('${footer}')`,
-          width: "100%",
-          height: "34rem",
-          backgroundRepeat: "round",
-        }}
-      >
+    <div className="footer position-relative" style={{ marginTop: "-18rem" }}>
+      <div className=" " style={{}}>
         {" "}
         <div
-          className="d-flex mx-5 justify-content-between"
-          style={{ paddingTop: "7rem" }}
+          className="footertitle d-flex mx-5 justify-content-center flex-wrap position-relative"
+          style={{}}
         >
-          <div className="d-lg-flex d-none align-items-center flex-column ">
+          <div className="d-flex  align-items-center flex-column my-5 me-5 ">
             <img
               src={footerv}
               style={{ width: "13.5rem", height: "3.187rem" }}
@@ -37,7 +29,7 @@ function Footer() {
               Verified Network
             </div>
           </div>
-          <div className="d-md-flex d-none flex-column">
+          <div className="d-flex flex-column m-5">
             <Link className="footerheading mb-5" to={footerdata[0].linkUrl}>
               Individuals
             </Link>
@@ -58,7 +50,7 @@ function Footer() {
             </Link>
           </div>
 
-          <div className="d-md-flex d-none flex-column">
+          <div className="d-flex  flex-column m-5">
             <Link className="footerheading mb-5" to={footerdata[1].linkUrl}>
               Businesses
             </Link>
@@ -78,7 +70,7 @@ function Footer() {
               Investment
             </Link>
           </div>
-          <div className="d-flex flex-column">
+          <div className="d-flex flex-column m-5">
             <Link className="footerheading mb-5" to={footerdata[2].linkUrl}>
               Service Providers
             </Link>
@@ -98,7 +90,7 @@ function Footer() {
               Network Operators
             </Link>
           </div>
-          <div className="d-flex flex-column">
+          <div className="d-flex flex-column m-5">
             <Link className="footerheading mb-5" to={""}>
               Company
             </Link>
@@ -118,7 +110,7 @@ function Footer() {
               Blog
             </Link>
           </div>
-          <div className="d-flex flex-column ">
+          <div className="d-flex flex-column my-5 ms-5">
             <Link className="footerheading mb-5" to={""}>
               Partners
             </Link>
@@ -133,11 +125,23 @@ function Footer() {
             </Link>
           </div>
         </div>
-        <div
-          className="footerend"
-          style={{ borderTop: "1px solid #E3E3E3", padding: "1.2rem 6rem" }}
-        >
-          Privacy Policy | Terms of Use
+        <div className="position-relative">
+          <img
+            src={footer}
+            style={{ width: "100%", maxHeight: "624px", height: "100%" }}
+          ></img>
+          <div
+            className="footerend position-absolute pt-md-3 mb-md-3 pt-sm-2 mb-sm-2 pt-1 mb-1"
+            style={{
+              borderTop: "1px solid #E3E3E3",
+
+              width: "100%",
+              bottom: "0px",
+              paddingRight: "6rem",
+            }}
+          >
+            Privacy Policy | Terms of Use
+          </div>
         </div>
       </div>
     </div>
