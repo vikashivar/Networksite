@@ -15,6 +15,7 @@ import "./individualsfile/indiheader.css";
 import Individual from "./individualsfile/individual";
 import "./individualsfile/indifeatures.css";
 import "./individualsfile/indizero.css";
+import "./individualsfile/question.css";
 
 const homeapi = createContext();
 

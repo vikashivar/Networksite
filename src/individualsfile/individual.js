@@ -4,7 +4,10 @@ import gp from "../home/homephoto/gp.png";
 import ap from "../home/homephoto/ap.png";
 import Indifeatures from "./indifeatures";
 import Features from "./features";
-import Indizero from "./indizero";
+import Indizerorops from "./indizerorops";
+import Indiquestion from "./indiquestion";
+import Download from "./Download";
+import Homesection7 from "../home/homefile/homesection7";
 
 const indistore = createContext();
 
@@ -66,9 +69,12 @@ function Individual() {
           ></Indiheader>
 
           <Features></Features>
-          <div>
-            <Indizero color="#8E5FF5"></Indizero>
+          <div className="" style={{ background: "rgba(216, 198, 255, 0.30)" }}>
+            <Indizerorops></Indizerorops>
+            <Indiquestion></Indiquestion>
+            <Download></Download>
           </div>
+          <Homesection7></Homesection7>
         </div>
       </indistore.Provider>
     )

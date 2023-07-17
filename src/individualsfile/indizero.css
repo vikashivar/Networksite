@@ -14,3 +14,38 @@
   font-weight: 700;
   line-height: normal;
 }
+
+.atitle {
+  font-family: Geomanist, sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.aheading {
+  text-align: center;
+  font-family: Geomanist, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem; /* 166.667% */
+}
+
+.adownload {
+  color: #393939;
+  font-family: Geomanist, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  max-width: 14.75rem;
+  max-height: 3.0625rem;
+  border-radius: 3.125rem;
+}
+.righttitle {
+  font-family: Geomanist, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+}

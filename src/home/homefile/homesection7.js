@@ -6,7 +6,7 @@ function Homesection7() {
   const section7 = useContext(homeapi);
   const apisection7 = section7.home.data.attributes.ctaCardDetails;
   const content = apisection7.content.split("///");
-  console.log(apisection7);
+
   return (
     <div>
       <div>
