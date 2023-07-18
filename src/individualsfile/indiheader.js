@@ -19,7 +19,7 @@ function Indiheader(props) {
             maxWidth: "90rem",
 
             width: "100%",
-            top: "-45px",
+            top: "-50px",
 
             transform: "skew(0deg, -4deg)",
           }}
@@ -39,7 +39,7 @@ function Indiheader(props) {
                   <Link to="/individual" className="me-4">
                     Individuals
                   </Link>
-                  <Link to="/bussiness" className="me-4">
+                  <Link to="/business" className="me-4">
                     Businesses
                   </Link>
                   <Link to="/service" className="me-4">
@@ -71,32 +71,9 @@ function Indiheader(props) {
               <div className="makes mt-5">{props.makes} </div>
               <div className="today">{props.today}</div>
               <div className="d-flex justify-content-center mt-4">
-                <a
-                  href={props.playstorelink}
-                  className="d-flex justify-content-center align-items-center"
-                  style={{
-                    width: "10.5rem",
-                    height: "3.3125rem",
-                    borderRadius: "3.125rem",
-                    background: props.bcolor,
-                    border: props.bborder,
-                  }}
-                >
-                  {props.pg}
-                </a>
-                <a
-                  href={props.appstorelink}
-                  className="d-flex justify-content-center align-items-center ms-4"
-                  style={{
-                    width: "10.5rem",
-                    height: "3.3125rem",
-                    borderRadius: "3.125rem",
-                    background: props.bcolor,
-                    border: props.bborder,
-                  }}
-                >
-                  {props.pa}
-                </a>
+                {props.pg}
+
+                {props.pa}
               </div>
             </div>
           </div>

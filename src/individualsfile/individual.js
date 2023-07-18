@@ -49,28 +49,51 @@ function Individual() {
             }
             makes={indiheader.description}
             today={indiheader.pitch}
-            playstorelink={indiheader.palyStoreLink}
-            appstorelink={indiheader.appStoreLink}
             pg={
-              <img
-                src={gp}
-                alt=""
-                style={{ width: "8.20rem", height: "2.38rem" }}
-              />
+              <a
+                href={indiheader.palyStoreLink}
+                className="d-flex justify-content-center align-items-center"
+                style={{
+                  width: "10.5rem",
+                  height: "3.3125rem",
+                  borderRadius: "3.125rem",
+                  background: "#000",
+                  border: "none",
+                }}
+              >
+                <img
+                  src={gp}
+                  alt=""
+                  style={{ width: "8.20rem", height: "2.38rem" }}
+                />
+              </a>
             }
             pa={
-              <img
-                src={ap}
-                alt=""
-                style={{ width: "7.62rem", height: "2.59rem" }}
-              />
+              <a
+                href={indiheader.appStoreLink}
+                className="d-flex justify-content-center align-items-center ms-4"
+                style={{
+                  width: "10.5rem",
+                  height: "3.3125rem",
+                  borderRadius: "3.125rem",
+                  background: "#000",
+                  border: "none",
+                }}
+              >
+                <img
+                  src={ap}
+                  alt=""
+                  style={{ width: "7.62rem", height: "2.59rem" }}
+                />
+              </a>
             }
-            bcolor="#000"
-            bborder="none"
           ></Indiheader>
 
           <Features></Features>
-          <div className="" style={{ background: "rgba(216, 198, 255, 0.30)" }}>
+          <div
+            className="mt-5"
+            style={{ background: "rgba(216, 198, 255, 0.30)" }}
+          >
             <Indizerorops></Indizerorops>
             <Indiquestion></Indiquestion>
             <Download></Download>

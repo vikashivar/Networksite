@@ -7,7 +7,7 @@ function Indiquestion() {
 
   return (
     <div>
-      <Question question={questionapi}></Question>
+      <Question question={questionapi} color={"#8E5FF5"}></Question>
     </div>
   );
 }

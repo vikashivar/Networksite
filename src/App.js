@@ -16,6 +16,7 @@ import Individual from "./individualsfile/individual";
 import "./individualsfile/indifeatures.css";
 import "./individualsfile/indizero.css";
 import "./individualsfile/question.css";
+import Business from "./business/businessfile/business";
 
 const homeapi = createContext();
 
@@ -44,6 +45,7 @@ function App() {
               path="/individual"
               element={<Individual></Individual>}
             ></Route>
+            <Route path="business" element={<Business></Business>}></Route>
           </Routes>
         </BrowserRouter>
       </homeapi.Provider>

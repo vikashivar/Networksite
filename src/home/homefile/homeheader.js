@@ -39,7 +39,7 @@ function Homeheader(props) {
                 <Link to="/individual" className="me-4">
                   Individuals
                 </Link>
-                <Link to="/bussiness" className="me-4">
+                <Link to="/business" className="me-4">
                   Businesses
                 </Link>
                 <Link to="/service" className="me-4">

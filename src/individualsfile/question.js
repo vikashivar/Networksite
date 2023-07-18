@@ -27,16 +27,21 @@ export default function Question(props) {
           return (
             <AccordionItem className="accordionitem p-4 mb-4" key={b} uuid={b}>
               <AccordionItemHeading>
-                <AccordionItemButton className="accordionitembutton d-flex justify-content-between align-items-center">
+                <AccordionItemButton
+                  className="accordionitembutton d-flex justify-content-between align-items-center"
+                  style={{ color: b === quui ? props.color : "#393939" }}
+                >
                   {a.question}
 
                   {quui !== b ? (
                     <img
+                      alt="playstore"
                       src={plush}
                       style={{ width: "2.2rem", height: "2.2rem" }}
                     ></img>
                   ) : (
                     <img
+                      alt="appstore"
                       src={cross}
                       style={{ width: "1.56rem", height: "1.56rem" }}
                     ></img>
