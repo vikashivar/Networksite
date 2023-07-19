@@ -19,7 +19,7 @@ function Indizero(props) {
           return (
             <div
               key={b}
-              className="d-flex flex-column jusify-content-center align-items-center  "
+              className=" d-flex flex-column jusify-content-center align-items-center  "
               style={{
                 borderRadius: a.borderradius,
                 border: a.border,
