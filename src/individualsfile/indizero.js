@@ -3,18 +3,15 @@ import { indistore } from "./individual";
 
 function Indizero(props) {
   const api = useContext(indistore);
-  const pricing = api.indi.data.attributes.pricing.heading.split("///");
 
   return (
     <div className="pt-5">
       <div className="mx-5 mb-5">
         <div className="pricing mt-3">
-          {pricing[0]}
-          <span style={{ color: props.color }}>{pricing[1]}</span>
+          {props.pricing[0]}
+          <span style={{ color: props.color }}>{props.pricing[1]}</span>
         </div>
-        <div className="zerobalance mt-3">
-          {api.indi.data.attributes.pricing.subheading}
-        </div>
+        <div className="zerobalance mt-3">{props.zerobalance}</div>
       </div>
 
       <div className="d-flex justify-content-lg-between justify-content-evenly align-items-center flex-lg-nowrap flex-wrap mx-5 px-xl-5 ">

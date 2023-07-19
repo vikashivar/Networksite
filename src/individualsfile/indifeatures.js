@@ -53,19 +53,39 @@ function Indifeatures(props) {
           </TabList>
 
           <TabPanel>
-            <Featurescom datalist={props.datalist1}></Featurescom>
+            <Featurescom
+              datalist={props.datalist1}
+              color={props.color}
+              arrow={props.arrow}
+            ></Featurescom>
           </TabPanel>
           <TabPanel>
-            <Featurescom datalist={props.datalist2}></Featurescom>
+            <Featurescom
+              datalist={props.datalist2}
+              color={props.color}
+              arrow={props.arrow}
+            ></Featurescom>
           </TabPanel>
           <TabPanel>
-            <Featurescom datalist={props.datalist3}></Featurescom>
+            <Featurescom
+              datalist={props.datalist3}
+              color={props.color}
+              arrow={props.arrow}
+            ></Featurescom>
           </TabPanel>
           <TabPanel>
-            <Featurescom datalist={props.datalist4}></Featurescom>
+            <Featurescom
+              datalist={props.datalist4}
+              color={props.color}
+              arrow={props.arrow}
+            ></Featurescom>
           </TabPanel>
           <TabPanel>
-            <Featurescom datalist={props.datalist5}></Featurescom>
+            <Featurescom
+              datalist={props.datalist5}
+              color={props.color}
+              arrow={props.arrow}
+            ></Featurescom>
           </TabPanel>
         </Tabs>
       </div>

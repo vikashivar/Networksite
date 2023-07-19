@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
-import Indizero from "./indizero";
-import whiteright from "./indiphoto/whiteright.png";
-import blueright from "./indiphoto/blueright.png";
-import { indistore } from "./individual";
+import React, { useContext, useState } from "react";
+import Indizero from "../../individualsfile/indizero";
+import colorright from "../businessphoto/colorright.png";
+import whiteright from "../businessphoto/whiteright.png";
+import { busistore } from "./business";
 
-function Indizerorops() {
-  const api = useContext(indistore);
-  const pricing = api.indi.data.attributes.pricing.heading.split("///");
-
+function Busizero() {
+  const apii = useContext(busistore);
+  const pricing = apii.busi.data.attributes.pricing.heading.split("///");
+  console.log(pricing);
   const zero = [
     {
       height: "33.125rem",
@@ -18,22 +18,21 @@ function Indizerorops() {
       title: "Account",
       titlecolor: "#393939",
       heading: "For account creation, KYC and custody of assets",
-      adownloadborder: "1.5px solid #8e5ff5",
+      adownloadborder: "1.5px solid #08c0b5",
       abackground: "none",
       right: [
         {
-          rightimg: blueright,
+          rightimg: colorright,
           color: "#8F8F98",
           title: "FREE account set up",
         },
         {
-          rightimg: blueright,
+          rightimg: colorright,
           color: "#8F8F98",
-          title:
-            "KYC Approval fee is waived off with 10 invites to friends to family.",
+          title: "$10 for KYC approval",
         },
         {
-          rightimg: blueright,
+          rightimg: colorright,
           color: "#8F8F98",
           title: "0.03% per year on assets in custody.",
         },
@@ -44,7 +43,7 @@ function Indizerorops() {
       borderradius: "0.75rem",
       border: "none",
       boxshadow: "0px 20px 50px 0px rgba(142, 95, 245, 0.30)",
-      background: "#8e5ff5",
+      background: "#08C0B5",
       title: "Payments",
       titlecolor: "#fff",
       heading:
@@ -60,7 +59,8 @@ function Indizerorops() {
         {
           rightimg: whiteright,
           color: "#fff",
-          title: "$15 card set up fee. $10 annual fee.",
+          title:
+            "$15 card set up fee. $10 annual fee on each card issued to employees.",
         },
         {
           rightimg: whiteright,
@@ -81,39 +81,43 @@ function Indizerorops() {
       border: "3px solid #fff",
       boxshadow: "0px 20px 50px 0px rgba(0, 0, 0, 0.08)",
       background: "#fff",
-      title: "Investments",
+      title: "Financing",
       titlecolor: "#393939",
       heading:
-        "For registering existing assets for sale, and trading investments.",
-      adownloadborder: "1.5px solid #8e5ff5",
+        "For issuing investment products to raise capital on the Verified Network",
+      adownloadborder: "1.5px solid #08C0B5",
       abackground: "none",
       right: [
         {
-          rightimg: blueright,
+          rightimg: colorright,
           color: "#8F8F98",
-          title:
-            "0.1% for registering existing securities for sale. Calculated on value of assets sold. ",
+          title: "$100 for upto four Credit Assessments per year.",
         },
         {
-          rightimg: blueright,
+          rightimg: colorright,
           color: "#8F8F98",
           title:
-            "0.1% on every investment brought and sold on the Verified Network.",
+            "0.5% for issuing investment products to raise capital. Calculated on value of investment raised.",
+        },
+        {
+          rightimg: colorright,
+          color: "#8F8F98",
+          title:
+            "0.1% for registering existing securities for sale. Calculated on value of assets sold.",
         },
       ],
     },
   ];
-
   return (
     <div>
       <Indizero
-        color="#8E5FF5"
+        color="#08C0B5"
         zero={zero}
         pricing={pricing}
-        zerobalance={api.indi.data.attributes.pricing.subheading}
+        zerobalance={apii.busi.data.attributes.pricing.subheading}
       ></Indizero>
     </div>
   );
 }
 
-export default Indizerorops;
+export default Busizero;

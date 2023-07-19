@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Group from "./indiphoto/Group.png";
 import bright from "./indiphoto/bright.png";
 import ga from "./indiphoto/ga.png";
 
@@ -10,10 +9,10 @@ function Featurescom(props) {
       <div className="mx-lg-5" style={{ marginTop: "7rem" }}>
         <div className="featureheading">
           {props.datalist[0]?.heading0}
-          <span style={{ color: "#8e5ff5", fontWeight: "700" }}>
-            {props.datalist[0].heading1}
+          <span style={{ color: props.color, fontWeight: "700" }}>
+            {props.datalist[0]?.heading1}
           </span>{" "}
-          {props.datalist[0].heading2}
+          {props.datalist[0]?.heading2}
         </div>
         {props.datalist.map((a, b) => {
           return (
@@ -60,7 +59,7 @@ function Featurescom(props) {
                 >
                   <div
                     style={{
-                      color: "#8E5FF5",
+                      color: props.color,
                       fontFamily: "Geomanist,sans-serif",
                       fontSize: "1.125rem",
                       fontStyle: "normal",
@@ -70,11 +69,7 @@ function Featurescom(props) {
                   >
                     Try it out
                   </div>
-                  <img
-                    className="ms-3"
-                    src={Group}
-                    style={{ width: "1.0156rem", height: "0.72rem" }}
-                  />
+                  {props.arrow}
                 </Link>
               </div>
             </div>

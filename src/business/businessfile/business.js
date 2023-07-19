@@ -1,5 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import Busiheader from "./busiheader";
+import Businessfeatures from "./businessfeatures";
+import Busizero from "./busizero";
 const busistore = createContext();
 
 function Business() {
@@ -20,6 +22,8 @@ function Business() {
       <busistore.Provider value={{ busi }}>
         <div>
           <Busiheader></Busiheader>
+          <Businessfeatures></Businessfeatures>
+          <Busizero></Busizero>
         </div>
       </busistore.Provider>
     )

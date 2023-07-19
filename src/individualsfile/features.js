@@ -14,6 +14,7 @@ import ptp from "./indiphoto/ptp.png";
 import hr from "./indiphoto/hr.png";
 import pi from "./indiphoto/pi.png";
 import liq from "./indiphoto/liq.png";
+import Group from "./indiphoto/Group.png";
 
 function Features() {
   const feat = useContext(indistore);
@@ -182,6 +183,14 @@ function Features() {
         datalist3={data3}
         datalist4={data4}
         datalist5={data5}
+        color="#8E5FF5"
+        arrow={
+          <img
+            className="ms-3"
+            src={Group}
+            style={{ width: "1.0156rem", height: "0.72rem" }}
+          />
+        }
       ></Indifeatures>
     </div>
   );
