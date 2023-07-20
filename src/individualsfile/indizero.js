@@ -5,7 +5,7 @@ function Indizero(props) {
   const api = useContext(indistore);
 
   return (
-    <div className="pt-5">
+    <div className="pt-5" style={{ background: props.backgroundcolor }}>
       <div className="mx-5 mb-5">
         <div className="pricing mt-3">
           {props.pricing[0]}
@@ -14,22 +14,22 @@ function Indizero(props) {
         <div className="zerobalance mt-3">{props.zerobalance}</div>
       </div>
 
-      <div className="d-flex justify-content-lg-between justify-content-evenly align-items-center flex-lg-nowrap flex-wrap mx-5 px-xl-5 ">
+      <div className="d-flex justify-content-lg-between justify-content-evenly align-items-center flex-lg-nowrap flex-wrap mx-5 px-xl-5 pb-5">
         {props.zero.map((a, b) => {
           return (
             <div
               key={b}
-              className=" d-flex flex-column jusify-content-center align-items-center  "
+              className=" d-flex flex-column jusify-content-center align-items-center pt-5 px-3 pb-3 m-xl-0 my-4 "
               style={{
                 borderRadius: a.borderradius,
                 border: a.border,
                 boxShadow: a.boxshadow,
                 background: a.background,
                 width: "19.75rem",
-                height: a.heading,
+                height: a.height,
               }}
             >
-              <div className="atitle mb-4 pb-2" style={{ color: a.titlecolor }}>
+              <div className="atitle mb-4" style={{ color: a.titlecolor }}>
                 {" "}
                 {a.title}
               </div>
@@ -44,7 +44,7 @@ function Indizero(props) {
                 style={{
                   border: a.adownloadborder,
                   width: "14.75rem",
-                  height: "3.0625rem",
+                  height: "3rem",
                   background: a.abackground,
                 }}
               >

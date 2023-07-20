@@ -7,7 +7,7 @@ import { busistore } from "./business";
 function Busizero() {
   const apii = useContext(busistore);
   const pricing = apii.busi.data.attributes.pricing.heading.split("///");
-  console.log(pricing);
+
   const zero = [
     {
       height: "33.125rem",
@@ -96,14 +96,13 @@ function Busizero() {
         {
           rightimg: colorright,
           color: "#8F8F98",
-          title:
-            "0.5% for issuing investment products to raise capital. Calculated on value of investment raised.",
+          title: "0.5% for issuing investment products to raise capital.",
         },
         {
           rightimg: colorright,
           color: "#8F8F98",
           title:
-            "0.1% for registering existing securities for sale. Calculated on value of assets sold.",
+            "0.1% for registering existing securities for sale. Calculated .",
         },
       ],
     },
@@ -115,6 +114,7 @@ function Busizero() {
         zero={zero}
         pricing={pricing}
         zerobalance={apii.busi.data.attributes.pricing.subheading}
+        backgroundcolor="rgba(193, 241, 238, 1)"
       ></Indizero>
     </div>
   );

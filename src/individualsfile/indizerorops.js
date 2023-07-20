@@ -111,6 +111,7 @@ function Indizerorops() {
         zero={zero}
         pricing={pricing}
         zerobalance={api.indi.data.attributes.pricing.subheading}
+        backgroundcolor=""
       ></Indizero>
     </div>
   );

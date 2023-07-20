@@ -17,11 +17,13 @@ function Footer() {
           style={{}}
         >
           <div className="d-flex  align-items-center flex-column my-5 me-5 ">
-            <img
-              src={footerv}
-              style={{ width: "13.5rem", height: "3.187rem" }}
-              alt=""
-            />
+            <Link to="/">
+              <img
+                src={footerv}
+                style={{ width: "13.5rem", height: "3.187rem" }}
+                alt=""
+              />
+            </Link>
             <div
               className="network align-self-end"
               style={{ marginRight: "29px" }}

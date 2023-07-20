@@ -14,7 +14,7 @@ export default function Question(props) {
   const [quui, setQuui] = useState("");
 
   return (
-    <div className="m-5" style={{}}>
+    <div className="p-5" style={{ background: props.backgroundcolor }}>
       <div className="frequently my-5">Frequently Asked Questions</div>
 
       <Accordion

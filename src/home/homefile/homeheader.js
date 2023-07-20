@@ -26,13 +26,13 @@ function Homeheader(props) {
       ></div>
       <div className="position-relative mx-5 pt-4">
         <div className="d-flex flex-md-row flex-column justify-content-md-between justify-content-center align-items-center ">
-          <div className="">
+          <Link to="/" className="" style={{ cursor: "pointer" }}>
             <img
               src={vicon}
               alt=""
               style={{ width: "10.56rem", height: "2.5rem" }}
             />
-          </div>
+          </Link>
           <div className=" hhnavbar align-self-center d-flex ">
             <div className="d-flex flex-sm-row flex-column justify-content-sm-between justify-content-center align-items-center flex-nowrap">
               <div>
