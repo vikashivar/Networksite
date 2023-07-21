@@ -17,6 +17,7 @@ function Indifeatures(props) {
             setZZZ(index);
           }}
         >
+          {" "}
           <TabList
             className={[
               "d-flex",
@@ -26,6 +27,9 @@ function Indifeatures(props) {
               "px-5",
               "pt-4",
             ]}
+            style={{
+              boxShadow: props.bshadow,
+            }}
           >
             {props.list.map((a, b) => {
               return (
@@ -51,7 +55,6 @@ function Indifeatures(props) {
               );
             })}
           </TabList>
-
           <TabPanel>
             <Featurescom
               datalist={props.datalist1}

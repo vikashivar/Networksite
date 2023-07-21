@@ -6,7 +6,6 @@ function Serhome() {
   const service = useContext(serstore);
   let serheader = service.ser.data.attributes.hero;
   let headerheading = serheader.heading.split("///");
-  console.log(service);
 
   return (
     <div>

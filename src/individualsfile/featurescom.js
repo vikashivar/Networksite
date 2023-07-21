@@ -5,7 +5,7 @@ import ga from "./indiphoto/ga.png";
 
 function Featurescom(props) {
   return (
-    <div>
+    <div className="mb-5">
       <div className="mx-lg-5" style={{ marginTop: "7rem" }}>
         <div className="featureheading">
           {props.datalist[0]?.heading0}

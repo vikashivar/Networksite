@@ -177,6 +177,7 @@ function Features() {
   return (
     <div>
       <Indifeatures
+        bshadow="0px 0px 50px 0px rgba(78, 89, 231, 0.10)"
         list={featurelist}
         datalist1={data1}
         datalist2={data2}

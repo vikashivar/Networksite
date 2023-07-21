@@ -178,6 +178,7 @@ function Businessfeatures() {
   return (
     <div>
       <Indifeatures
+        bshadow="0px 20px 50px 0px rgba(11, 193, 182, 0.10)"
         list={featurelist}
         datalist1={data1}
         datalist2={data2}
