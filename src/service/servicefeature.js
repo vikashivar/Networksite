@@ -211,8 +211,8 @@ function Servicefeature() {
       heading1: dataheading1[2],
       heading2: dataheading1[3],
       direction: "flex-lg-row flex-column-reverse",
-      maxwidth: "27rem",
-      maxheight: "126.25rem",
+      maxwidth: "25rem",
+      maxheight: "26.25rem",
       subheading1: <span style={{ fontWeight: 400 }}>Asset </span>,
       subheading2: <span style={{ fontWeight: 700 }}>Origination</span>,
       detail: [
@@ -263,8 +263,8 @@ function Servicefeature() {
       heading1: dataheading3[0],
       heading2: dataheading3[1],
       direction: "flex-lg-row flex-column-reverse",
-      maxwidth: "26.25rem",
-      maxheight: "28.87rem",
+      maxwidth: "24.25rem",
+      maxheight: "27.87rem",
       subheading1: <span style={{ fontWeight: 400 }}>Digital</span>,
       subheading2: <span style={{ fontWeight: 700 }}> Asset Custody</span>,
       detail: [
@@ -274,9 +274,10 @@ function Servicefeature() {
       img: sr,
     },
     {
-      direction: "flex-lg-row-reverse flex-column-reverse",
-      maxwidth: "31.25rem",
-      maxheight: "31.125rem",
+      direction:
+        "flex-lg-row-reverse flex-column-reverse justify-content-between",
+      maxwidth: "27.25rem",
+      maxheight: "30.125rem",
       subheading1: "Transfer",
       subheading2: "Agency",
       detail: [
@@ -287,7 +288,7 @@ function Servicefeature() {
     },
     {
       direction: "flex-lg-row flex-column-reverse",
-      maxwidth: "27.75rem",
+      maxwidth: "26.75rem",
       maxheight: "24.5rem",
       subheading1: "Register",
       subheading2: (
@@ -311,8 +312,8 @@ function Servicefeature() {
       heading0: dataheading4[1],
       heading1: dataheading4[2],
       direction: "flex-lg-row flex-column-reverse",
-      maxwidth: "31.36rem",
-      maxheight: "28.87rem",
+      maxwidth: "29.36rem",
+      maxheight: "27.87rem",
       subheading1: "Digital",
       subheading2: " Payments",
       detail: [
@@ -323,8 +324,8 @@ function Servicefeature() {
     },
     {
       direction: "flex-lg-row-reverse flex-column-reverse",
-      maxwidth: "33.75rem",
-      maxheight: "32.81rem",
+      maxwidth: "30.75rem",
+      maxheight: "30.81rem",
       subheading1: "Payment",
       subheading2: " Acceptance",
       detail: [
@@ -342,8 +343,8 @@ function Servicefeature() {
       heading1: dataheading5[2],
       heading2: dataheading5[3],
       direction: "flex-lg-row flex-column-reverse",
-      maxwidth: "35.25rem",
-      maxheight: "30.125rem",
+      maxwidth: "32.25rem",
+      maxheight: "28.125rem",
       subheading1: "Decentralise",
       subheading2: " Finance",
       detail: [

@@ -18,6 +18,8 @@ import "./individualsfile/indizero.css";
 import "./individualsfile/question.css";
 import Business from "./business/businessfile/business";
 import Service from "./service/service";
+import About from "./aboutfile/about";
+import "./aboutfile/about.css";
 
 const homeapi = createContext();
 
@@ -46,8 +48,9 @@ function App() {
               path="/individual"
               element={<Individual></Individual>}
             ></Route>
-            <Route path="business" element={<Business></Business>}></Route>
-            <Route path="service" element={<Service></Service>}></Route>
+            <Route path="/business" element={<Business></Business>}></Route>
+            <Route path="/service" element={<Service></Service>}></Route>
+            <Route path="/About" element={<About></About>}></Route>
           </Routes>
         </BrowserRouter>
       </homeapi.Provider>

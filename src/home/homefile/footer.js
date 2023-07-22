@@ -96,7 +96,7 @@ function Footer() {
             <Link className="footerheading mb-5" to={""}>
               Company
             </Link>
-            <Link className="footeraccount" to={""}>
+            <Link className="footeraccount" to={"/About"}>
               About Us
             </Link>
             <Link className="footeraccount" to={""}>
