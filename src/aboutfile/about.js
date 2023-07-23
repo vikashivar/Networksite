@@ -51,9 +51,6 @@ function About() {
     };
   }
 
-  // console.log(teamdata[0].name);?
-  console.log(teamdata);
-  console.log(team);
   return (
     about && (
       <div>
@@ -297,7 +294,7 @@ function About() {
           className="p-5"
           style={{ background: "rgba(80,91,232,0.0299)", marginTop: "6rem" }}
         >
-          <div className="m-5">
+          <div className="m-sm-5">
             <div
               className="mb-5"
               style={{
@@ -315,21 +312,21 @@ function About() {
                 {about.data.attributes.teamTitle.split("///")[1]}
               </span>
             </div>
-            <div className="d-flex justify-content-around pt-5">
+            <div className="d-flex flex-lg-row flex-column justify-content-xl-around justify-content-between p-xl-5 pt-5 align-items-center">
               <div>
                 <img
+                  className="man1"
                   src={man1}
                   alt=""
                   style={{
-                    maxWidth: "18.32rem",
-                    maxHeight: "23.18rem",
                     borderRadius: "1.25rem",
-                    width: "100%",
-                    height: "100%",
                   }}
                 />
               </div>
-              <div style={{ maxWidth: "34.81rem" }} className="mt-4">
+              <div
+                style={{}}
+                className="mt-4 ms-lg-5 d-lg-block d-flex flex-column align-items-center"
+              >
                 <div
                   className=""
                   style={{
@@ -410,7 +407,7 @@ function About() {
           {/* ----------------------------------------------------- */}
           <div>
             <div
-              className="d-flex justify-content-center flex-column align-items-center"
+              className="d-flex justify-content-center flex-column align-items-center mx-5 px-5"
               style={{ marginTop: "6rem", marginBottom: "8rem" }}
             >
               {" "}
@@ -429,59 +426,25 @@ function About() {
                 Group of<span style={{ color: "#4e59e7" }}> Companies</span>
               </div>
               <div
-                className="p-4"
+                className="p-lg-4 px-md-3 px-md-2  pt-md-3 p-4  mapwidth"
                 style={{
-                  maxWidth: "22.93rem",
                   borderRadius: "1.25rem",
                   background: "#fff",
                   boxShadow: "0px 11px 30px 0px rgba(90,90,193,0.20)",
-                  marginBottom: " -186px",
-                  marginRight: "-215px",
+
                   zIndex: 1,
                 }}
               >
                 <div className="pt-1">
                   {" "}
-                  <div
-                    style={{
-                      color: "#505BE7",
-                      fontFamily: "Geomanist,sans-serif",
-                      fontSize: "1.5rem",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "normal",
-                    }}
-                  >
-                    Verified AG
-                  </div>
-                  <div
-                    className="mt-3"
-                    style={{
-                      color: "#393939",
-                      fontFamily: "Geomanist,sans-serif",
-                      fontSize: "1.125rem",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "1.625rem",
-                      maxWidth: "19.5rem",
-                    }}
-                  >
+                  <div className="verifiedag">Verified AG</div>
+                  <div className="mt-3 agservice">
                     Verified AG services the platfrom connecting investors,
                     asset managers, and businesses
                   </div>
-                  <div
-                    className="mt-4"
-                    style={{
-                      color: "#8F8F98",
-                      fontFamily: "Geomanist,sans-serif",
-                      fontSize: "0.875rem",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "1.3125rem",
-                      width: "15.56rem",
-                    }}
-                  >
-                    Verified AG, Dammstrasse 16, 6300 Zug, Switzerland
+                  <div className="mt-lg-4 mt-2 p-lg-0 pb-1 pe-lg-0 pe-1 zerland">
+                    Verified AG, Dammstrasse 16, 6300 Zug,{" "}
+                    <span className="d-lg-inline d-block"> Switzerland</span>
                   </div>
                 </div>
               </div>
@@ -490,14 +453,26 @@ function About() {
                   <img
                     src={Map}
                     style={{
-                      maxWidth: "67.11rem",
-                      maxHeight: "37.81rem",
+                      // maxWidth: "67.11rem",
+                      // maxHeight: "37.81rem",
                       width: "100%",
                       height: "100%",
                     }}
                   />
                 </div>
               </div>
+              {/* <div className="pt-4"> */}
+              {/* {" "}
+                  <div className="">Verified AG</div>
+                  <div className="mt-3 ">
+                    Verified AG services the platfrom connecting investors,
+                    asset managers, and businesses
+                  </div>
+                  <div className="mt-4 ">
+                    Verified AG, Dammstrasse 16, 6300 Zug,{" "}
+                     Switzerland
+                  </div> */}
+              {/* </div> */}
             </div>
           </div>
 
@@ -522,7 +497,7 @@ function About() {
               {" "}
               <Link
                 style={{ color: "#fff" }}
-                className="getstart d-flex justify-content-center align-items-center"
+                className="contectus d-flex justify-content-center align-items-center"
                 to={about.data.attributes.ctaCardDetails.buttonCtaLink}
               >
                 {about.data.attributes.ctaCardDetails.buttonText}

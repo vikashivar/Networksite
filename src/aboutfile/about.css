@@ -26,3 +26,141 @@
     width: 25.93rem;
   }
 }
+
+@media (min-width: 450px) {
+  .man1 {
+    width: 18.32rem;
+    height: 23.18rem;
+  }
+}
+@media (max-width: 449px) {
+  .man1 {
+    max-width: 18.32rem;
+    max-height: 23.18rem;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.contectus {
+  flex-shrink: 0;
+  border-radius: 2.0625rem;
+  background: #4e59e7;
+  box-shadow: 0px 20px 50px 0px rgba(78, 89, 231, 0.3);
+  color: #fff;
+  font-family: Geomanist, sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem;
+}
+@media (min-width: 576px) {
+  .contectus {
+    width: 16.5rem;
+    height: 4.125rem;
+  }
+}
+@media (max-width: 575px) {
+  .contectus {
+    width: 13rem;
+    height: 3.7rem;
+  }
+}
+.verifiedag {
+  color: #505be7;
+  font-family: Geomanist, sans-serif;
+
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.agservice {
+  color: #393939;
+  font-family: Geomanist, sans-serif;
+
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.625rem;
+  max-width: 19.5rem;
+}
+.zerland {
+  color: #8f8f98;
+  font-family: Geomanist, sans-serif;
+
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.3125rem;
+  width: 15.56rem;
+}
+
+@media (min-width: 1200px) {
+  .verifiedag {
+    font-size: 24px;
+  }
+  .agservice {
+    font-size: 18px;
+  }
+  .zerland {
+    font-size: 14px;
+  }
+  .mapwidth {
+    max-width: 22.93rem;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .verifiedag {
+    font-size: 20px;
+  }
+  .agservice {
+    font-size: 15px;
+  }
+  .zerland {
+    font-size: 12px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .verifiedag {
+    font-size: 18px;
+  }
+  .agservice {
+    font-size: 13px;
+  }
+  .zerland {
+    font-size: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .verifiedag {
+    font-size: 24px;
+  }
+  .agservice {
+    font-size: 18px;
+  }
+  .zerland {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1100px) and (max-width: 1199px) {
+  .mapwidth {
+    max-width: 19rem;
+  }
+}
+@media (min-width: 992px) and (max-width: 1099px) {
+  .mapwidth {
+    max-width: 16rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+  .mapwidth {
+    max-width: 13rem;
+  }
+}
+@media (min-width: 768px) {
+  .mapwidth {
+    margin-bottom: -186px;
+    margin-right: -215px;
+  }
+}
