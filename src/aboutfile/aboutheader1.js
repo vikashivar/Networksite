@@ -32,6 +32,7 @@ function Aboutheader1(props) {
         </div>
       </div>
       <div
+        className="mt-5"
         style={{
           color: "#393939",
           textAlign: "center",

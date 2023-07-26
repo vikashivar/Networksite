@@ -93,41 +93,41 @@ function Footer() {
             </Link>
           </div>
           <div className="d-flex flex-column m-5">
-            <Link className="footerheading mb-5" to={""}>
+            <Link className="footerheading mb-5" to="/">
               Company
             </Link>
-            <Link className="footeraccount" to={"/About"}>
+            <Link className="footeraccount" to="/About">
               About Us
             </Link>
-            <Link className="footeraccount" to={""}>
+            <Link className="footeraccount" to="/">
               Assets
             </Link>
-            <Link className="footeraccount" to={""}>
+            <Link className="footeraccount" to="/careers">
               Careers
             </Link>
-            <Link className="footeraccount" to={""}>
+            <Link className="footeraccount" to="/">
               Contact Us
             </Link>
-            <Link className="footeraccount" to={""}>
+            <Link className="footeraccount" to="/">
               Blog
             </Link>
           </div>
           <div className="d-flex flex-column my-5 ms-5">
-            <Link className="footerheading mb-5" to={""}>
+            <Link className="footerheading mb-5" to="">
               Partners
             </Link>
-            <Link className="footeraccount" to={""}>
+            <Link className="footeraccount" to="/">
               Operators
             </Link>
-            <Link className="footeraccount" to={""}>
+            <Link className="footeraccount" to="/">
               Developers
             </Link>
-            <Link className="footeraccount" to={""}>
+            <Link className="footeraccount" to="/">
               Investors
             </Link>
           </div>
         </div>
-        <div className="position-relative">
+        <div className="position-relative" style={{ zIndex: -1 }}>
           <img
             src={footer}
             style={{ width: "100%", maxHeight: "624px", height: "100%" }}

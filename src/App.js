@@ -20,6 +20,8 @@ import Business from "./business/businessfile/business";
 import Service from "./service/service";
 import About from "./aboutfile/about";
 import "./aboutfile/about.css";
+import Careers from "./aboutfile/carreers";
+import Jobdetails from "./aboutfile/jobdetails";
 
 const homeapi = createContext();
 
@@ -51,6 +53,11 @@ function App() {
             <Route path="/business" element={<Business></Business>}></Route>
             <Route path="/service" element={<Service></Service>}></Route>
             <Route path="/About" element={<About></About>}></Route>
+            <Route path="/careers" element={<Careers></Careers>}></Route>
+            <Route
+              path="careers/job"
+              element={<Jobdetails></Jobdetails>}
+            ></Route>
           </Routes>
         </BrowserRouter>
       </homeapi.Provider>
