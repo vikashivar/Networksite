@@ -70,7 +70,7 @@ function Careersection1() {
             <div className="mt-3 pt-3">
               {a.keypoints.split("/").map((c, d) => {
                 return (
-                  <div className="d-flex  mb-2 pb-1">
+                  <div className="d-flex  mb-2 pb-1" key={c}>
                     <img
                       src={vector}
                       style={{

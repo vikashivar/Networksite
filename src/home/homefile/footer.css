@@ -95,3 +95,21 @@
     top: 115px;
   }
 }
+
+@media (min-width: 870px) {
+  .footermargin {
+    margin-top: -20rem;
+  }
+}
+
+@media (min-width: 570px) and (max-width: 869px) {
+  .footermargin {
+    margin-top: -15rem;
+  }
+}
+
+@media (max-width: 569px) {
+  .footermargin {
+    margin-top: -11rem;
+  }
+}

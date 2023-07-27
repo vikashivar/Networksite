@@ -19,12 +19,6 @@ function Careers() {
     api();
   }, []);
 
-  if (careers) {
-    console.log(
-      careers.data?.attributes?.careerHeader?.headerContent.split("///")[0]
-    );
-  }
-
   return (
     careers && (
       <careerdata.Provider value={{ careers }}>

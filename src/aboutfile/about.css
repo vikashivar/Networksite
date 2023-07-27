@@ -222,7 +222,7 @@
   .important {
     font-size: 3.75rem;
   }
-  .description {
+  .description1 {
     font-size: 2.5rem;
   }
 }
@@ -230,7 +230,7 @@
   .important {
     font-size: 2rem;
   }
-  .description {
+  .description1 {
     font-size: 2rem;
   }
 }
@@ -249,5 +249,25 @@
 }
 .focusvisible:focus-visible {
   outline: -webkit-focus-ring-color auto 0px;
-  border: 3px solid red !important;
+  border: 2px solid #dce2ff !important;
+}
+.forminput {
+  border-radius: 30px;
+  border: none;
+}
+.forminput:active {
+  /* border: none; */
+}
+
+@media (min-width: 450px) {
+  .forminput {
+    width: 19rem;
+    height: 3.75rem;
+  }
+}
+@media (max-width: 449px) {
+  .forminput {
+    width: 16rem;
+    height: 3rem;
+  }
 }

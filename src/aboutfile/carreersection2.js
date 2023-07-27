@@ -13,7 +13,6 @@ function Carreersection2() {
     setFil(!fil);
   }
 
-  console.log(car.careers.data.attributes.jobInfo[0]);
   return (
     <div className=" mx-md-0 mx-sm-4">
       <div
