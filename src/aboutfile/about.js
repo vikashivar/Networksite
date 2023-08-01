@@ -58,7 +58,14 @@ function About() {
       <aboutapi.Provider value={{ about }}>
         {" "}
         <div>
-          <Aboutheader1 title={about.data.attributes.title}></Aboutheader1>
+          <Aboutheader1
+            title={about.data.attributes.title}
+            aboutbackground="linear-gradient(
+    315deg,
+    #c3eaff 4.17%,
+    rgba(220, 242, 255, 0.6) 85.57%
+  )"
+          ></Aboutheader1>
           <Aboutheader2
             aboutheader2={
               <>

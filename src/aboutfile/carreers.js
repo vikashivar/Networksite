@@ -23,7 +23,15 @@ function Careers() {
     careers && (
       <careerdata.Provider value={{ careers }}>
         <div>
-          <Aboutheader1 comheader1={<Comheader1></Comheader1>}></Aboutheader1>
+          <Aboutheader1
+            title="Careers"
+            comheader1={<Comheader1></Comheader1>}
+            aboutbackground="linear-gradient(
+    315deg,
+    #c3eaff 4.17%,
+    rgba(220, 242, 255, 0.6) 85.57%
+  )"
+          ></Aboutheader1>
           <Aboutheader2
             aboutheader2={
               <>

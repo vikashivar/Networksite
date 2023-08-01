@@ -1,0 +1,41 @@
+.focusvisible1:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+  border: 2px solid black !important;
+}
+.focusvisible1 {
+  border: 1px solid #dce2ff !important;
+}
+
+.focusvisible2:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+
+@media (min-width: 992px) {
+  .paddingclass {
+    width: 50%;
+  }
+}
+
+#country {
+  -moz-appearance: none;
+
+  -webkit-appearance: none;
+}
+
+#country::-ms-expand {
+  display: none;
+}
+
+#country {
+  background: red;
+}
+@media (min-width: 576px) {
+  .needhelp {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 575px) {
+  .needhelp {
+    font-size: 2rem;
+  }
+}

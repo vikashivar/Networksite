@@ -107,7 +107,7 @@ function Footer() {
               <Link className="footeraccount" to="/careers">
                 Careers
               </Link>
-              <Link className="footeraccount" to="/">
+              <Link className="footeraccount" to="/contact">
                 Contact Us
               </Link>
               <Link className="footeraccount" to="/">

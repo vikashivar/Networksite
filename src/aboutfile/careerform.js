@@ -21,8 +21,9 @@ function Careerform(props) {
         {props.name}
       </label>
       <input
+        autoComplete="false"
         className="focusvisible mt-3"
-        type="text"
+        type={props.type}
         style={{
           color: "#8F8F98",
           fontFamily: "Geomanist, sans-serif",

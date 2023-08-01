@@ -169,7 +169,7 @@ function Careersection1() {
                     ctaCard: car.careers.data.attributes.ctaCard,
                     aboutjob: a,
                   }}
-                  to={`/careers/job/?jobId=${a.jobId}`}
+                  to={`/careers/job?jobId=${a.jobId}`}
                   style={{
                     color: "#FFF",
                     textAlign: "center",

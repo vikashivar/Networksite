@@ -5,8 +5,11 @@ import Comheader1 from "./comheader1";
 
 function Aboutheader1(props) {
   return (
-    <div className="aboutheaderpart1">
-      <div className="d-flex flex-md-row flex-column justify-content-md-between justify-content-center align-items-center pt-4 px-5">
+    <div
+      className="aboutheaderpart1 position-relative"
+      style={{ background: props.aboutbackground, zIndex: "-1" }}
+    >
+      <div className="d-flex flex-row  justify-content-between justify-content-center align-items-center pt-4 px-5">
         <Link to="/" className="">
           <img
             src={vicon}
@@ -15,7 +18,7 @@ function Aboutheader1(props) {
           />
         </Link>
         <div className=" hhnavbar align-self-center d-flex ">
-          <div className="d-flex flex-sm-row flex-column justify-content-sm-between justify-content-center align-items-center flex-nowrap">
+          <div className="d-flex flex-sm-row flex-column justify-content-sm-between justify-content-center align-items-center flex-nowrap ">
             {props.comheader1}
             <div
               className="d-flex justify-content-center align-items-center login mt-sm-0 mt-3"

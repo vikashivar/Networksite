@@ -360,10 +360,12 @@ function Jobdetails() {
               <form className="">
                 <div className="d-flex justify-content-between flex-md-row flex-column">
                   <Careerform
+                    type="text"
                     name="First Name"
                     placeholder="Enter your first name"
                   ></Careerform>
                   <Careerform
+                    type="text"
                     name="Last Name"
                     placeholder="Enter your last name"
                     margin="ms-md-4"
@@ -371,10 +373,12 @@ function Jobdetails() {
                 </div>
                 <div className="d-flex justify-content-between flex-md-row flex-column">
                   <Careerform
+                    type="text"
                     name="Email"
                     placeholder="eg: robin@gmail.com"
                   ></Careerform>
                   <Careerform
+                    type="text"
                     name="Phone"
                     placeholder="Enter 10 digit phone number"
                     margin="ms-md-4"
@@ -382,11 +386,13 @@ function Jobdetails() {
                 </div>
                 <div className="d-flex justify-content-between flex-md-row flex-column">
                   <Careerform
+                    type="text"
                     name="Location"
                     placeholder="Enter your location"
                   ></Careerform>
                   <div style={{ flex: "1" }} className="d-flex flex-column">
                     <Careerform
+                      type="text"
                       name="Resume/CV"
                       placeholder="Upload"
                       margin="ms-md-3"
