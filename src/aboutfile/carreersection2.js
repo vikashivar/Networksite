@@ -14,7 +14,10 @@ function Carreersection2() {
   }
 
   return (
-    <div className=" mx-md-0 mx-sm-4">
+    <div
+      className=" mx-md-0 mx-sm-4"
+      style={{ position: "relative", zIndex: "3" }}
+    >
       <div
         className="d-md-none d-block"
         style={{

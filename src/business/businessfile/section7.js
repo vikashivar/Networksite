@@ -8,7 +8,7 @@ function Section7() {
 
   return (
     <div>
-      <div>
+      <div style={{ position: "relative", zIndex: "3" }}>
         <div
           className="d-flex justify-content-center align-items-center flex-column pt-5"
           style={{

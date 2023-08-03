@@ -21,6 +21,8 @@ function Careerform(props) {
         {props.name}
       </label>
       <input
+        value={props.value}
+        onChange={props.change}
         autoComplete="false"
         className="focusvisible mt-3"
         type={props.type}
@@ -37,9 +39,23 @@ function Careerform(props) {
           border: "none",
           borderRadius: "12px",
           paddingLeft: "30px",
+          paddingTop: props.paddingtop,
         }}
         placeholder={props.placeholder}
       />
+      <div
+        className="mt-2"
+        style={{
+          color: "#FF7A7A",
+          fontFamily: "Geomanist,sans-serif",
+          fontSize: "0.8125rem",
+          fontStyle: "normal",
+          fontWeight: 400,
+          lineHeight: "normal",
+        }}
+      >
+        {props.error}
+      </div>
     </div>
   );
 }

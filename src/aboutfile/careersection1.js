@@ -36,6 +36,8 @@ function Careersection1() {
               maxWidth: "46.75rem",
               borderRadius: "1rem",
               marginTop: "2.5rem",
+              position: "relative",
+              zIndex: "3",
             }}
             className="d-flex  flex-column p-4 "
           >

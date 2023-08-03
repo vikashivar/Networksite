@@ -7,7 +7,7 @@ function Aboutheader1(props) {
   return (
     <div
       className="aboutheaderpart1 position-relative"
-      style={{ background: props.aboutbackground, zIndex: "-1" }}
+      style={{ background: props.aboutbackground, zIndex: "1" }}
     >
       <div className="d-flex flex-row  justify-content-between justify-content-center align-items-center pt-4 px-5">
         <Link to="/" className="">
@@ -48,6 +48,7 @@ function Aboutheader1(props) {
       >
         {props.title}
       </div>
+      <div>{props.detail}</div>
     </div>
   );
 }

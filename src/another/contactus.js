@@ -8,106 +8,81 @@ import Footer from "../home/homefile/footer";
 import { useFormik } from "formik";
 
 function Contactus(props) {
-  const validate = () => {
-    let errero = {};
-    let validform = true;
+  const [fn, setFn] = useState("");
+  const [ln, setLn] = useState("");
+  const [email, setEmail] = useState("");
+  const [number, setNumber] = useState("");
+  const [query, setQuery] = useState();
+  const [country, setCountry] = useState();
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState({});
 
-    if (!values.firstname.trim()) {
+  const validate = () => {
+    let validform = true;
+    let errero = {};
+
+    if (!fn.trim()) {
       validform = false;
       errero = { ...errero, firstname: "First name is required" };
-    } else if (values.firstname.trim < 3) {
+    } else if (fn.trim().length < 3) {
       validform = false;
       errero = { ...errero, firstname: "Fill valid first name" };
-    } else {
-      errero = { ...errero, firstname: "" };
     }
 
-    if (!values.lastname.trim()) {
+    if (!ln.trim()) {
       validform = false;
       errero = { ...errero, lastname: "Last name is required" };
-    } else if (values.lastname.trim < 3) {
+    } else if (ln.trim().length < 3) {
       validform = false;
       errero = { ...errero, lastname: "Fill valid last name" };
-    } else {
-      errero = { ...errero, lastname: "" };
     }
 
-    if (!values.country) {
+    if (!country) {
       validform = false;
       errero = { ...errero, country: "Country name is required" };
-    } else {
-      errero = { ...errero, country: "" };
     }
-    // const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    // !values.email.match(emailPattern)
-    if (!values.email.trim()) {
+
+    if (!email.trim()) {
       validform = false;
       errero = { ...errero, email: "Email is required" };
-    } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-    ) {
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
       validform = false;
       errero = { ...errero, email: "Invalid email format" };
-    } else {
-      errero = { ...errero, email: "" };
     }
 
-    // if (!values.phonenumber.trim()) {
-    //   validate = false;
-    //   errero = { ...errero, phonenumber: "Phone number is required" };
-    // } else if (values.phonenumber.trim().length < 11) {
-    //   validate = false;
-    //   errero = { ...errero, phonenumber: "Invalid phone number" };
-    // } else {
-    //   errero = { ...errero, phonenumber: "" };
-    // }
-
-    if (!values.querytype) {
+    if (!number.trim()) {
       validform = false;
-      errero = { ...errero, querytype: "Query type is required" };
-    } else {
-      errero = { ...errero, querytype: "" };
+      errero = { ...errero, number: "Phone number is required" };
+    } else if (number.trim().length < 10) {
+      validform = false;
+      errero = { ...errero, number: "Invalid phone number" };
     }
 
-    if (!values.message.trim()) {
+    if (!query) {
+      validform = false;
+      errero = { ...errero, query: "Query type is required" };
+    }
+
+    if (!message.trim()) {
       validform = false;
       errero = { ...errero, message: "Message is required" };
-    } else if (values.message.trim() < 11) {
+    } else if (message.trim().length < 4) {
       validform = false;
       errero = { ...errero, message: "invalid message" };
-    } else {
-      errero = { ...errero, message: "" };
     }
+    setError(errero);
 
     if (validform) {
+      setFn("");
+      setLn("");
+      setCountry("");
+      setEmail("");
+      setMessage("");
+      setQuery("");
+      setNumber("");
       console.log("form is submit");
     }
-
-    return errero;
   };
-
-  const {
-    handleChange,
-    values,
-    handleSubmit,
-    errors: errero,
-    touched,
-    handleBlur,
-  } = useFormik({
-    initialValues: {
-      firstname: "",
-      lastname: "",
-      country: "",
-      email: "",
-      phonenumber: "",
-      querytype: "",
-      message: "",
-    },
-    validate,
-    onSubmit: (values) => {},
-  });
-
-  console.log("errors", { errero, touched });
 
   return (
     <div>
@@ -133,34 +108,28 @@ function Contactus(props) {
               Have questions? The quickest way to get in touch with us is by
               filling form below.
             </div>
-            <form className="px-3" onSubmit={handleSubmit}>
+            <form className="px-3">
               <div>
                 <Contactform
-                  error={
-                    errero?.firstname && touched?.firstname
-                      ? errero?.firstname
-                      : ""
-                  }
-                  change={handleChange}
-                  onBlur={handleBlur}
+                  error={error?.firstname}
+                  value={fn}
+                  change={(e) => {
+                    setFn(e.target.value);
+                  }}
                   namee="First Name"
                   type="text"
-                  name="firstname"
                   placeholder="Enter your first name"
                 ></Contactform>
                 <Contactform
-                  error={
-                    errero?.lastname && touched?.lastname
-                      ? errero?.lastname
-                      : ""
-                  }
-                  change={handleChange}
+                  error={error?.lastname}
+                  value={ln}
+                  change={(e) => {
+                    setLn(e.target.value);
+                  }}
                   namee="Last Name"
                   type="text"
-                  name="lastname"
                   placeholder="Enter your last name"
                   paddingclass="ps-lg-4"
-                  onBlur={handleBlur}
                 ></Contactform>
               </div>
               <div>
@@ -187,8 +156,10 @@ function Contactus(props) {
                       Country
                     </label>
                     <select
-                      onChange={handleChange}
-                      name="country"
+                      value={country}
+                      onChange={(e) => {
+                        setCountry(e.target.value);
+                      }}
                       id="country"
                       className="focusvisible1 mt-3"
                       style={{
@@ -209,9 +180,7 @@ function Contactus(props) {
                         // width: "28rem",
                       }}
                     >
-                      <option disabled selected hidden>
-                        Select Country
-                      </option>
+                      <option>Select Country</option>
                       <option value="United States">United States</option>
                       <option value="Canada">Canada</option>
                       <option value="United Kingdom">United Kingdom</option>
@@ -236,31 +205,33 @@ function Contactus(props) {
                         lineHeight: "normal",
                       }}
                     >
-                      {errero?.country}
+                      {error?.country}
                     </div>
                   </div>
                 </div>
                 {/* ================================ */}
                 <Contactform
-                  error={errero?.email}
-                  change={handleChange}
+                  error={error?.email}
+                  value={email}
+                  change={(e) => {
+                    setEmail(e.target.value);
+                  }}
                   namee="Email"
                   type="email"
-                  name="email"
                   placeholder="Eg: robin@gmail.com"
                   paddingclass="ps-lg-4"
-                  onBlur={handleBlur}
                 ></Contactform>
               </div>
               <div>
                 <Contactform
-                  error={errero?.phonenumber}
-                  change={handleChange}
+                  error={error?.number}
+                  value={number}
+                  change={(e) => {
+                    setNumber(e.target.value);
+                  }}
                   namee="Phone Number"
-                  type="text"
-                  name="phonenumber"
+                  type="number"
                   placeholder="Enter 10 digit phone number"
-                  onBlur={handleBlur}
                 ></Contactform>
                 {/* ================================= */}
                 <div
@@ -285,8 +256,10 @@ function Contactus(props) {
                       Query Type
                     </label>
                     <select
-                      onChange={handleChange}
-                      name="querytype"
+                      value={query}
+                      onChange={(e) => {
+                        setQuery(e.target.value);
+                      }}
                       id="querytype"
                       className="focusvisible1 mt-3"
                       style={{
@@ -307,9 +280,7 @@ function Contactus(props) {
                         // width: "28rem",
                       }}
                     >
-                      <option disabled selected hidden>
-                        Select Query Type{" "}
-                      </option>
+                      <option>Select Query Type </option>
                       <option value="United States">United States</option>
                       <option value="Canada">Canada</option>
                       <option value="United Kingdom">United Kingdom</option>
@@ -334,7 +305,7 @@ function Contactus(props) {
                         lineHeight: "normal",
                       }}
                     >
-                      {errero.querytype}
+                      {error?.query}
                     </div>
                   </div>
                 </div>
@@ -357,8 +328,10 @@ function Contactus(props) {
                     Message
                   </label>
                   <textarea
-                    onChange={handleChange}
-                    name="message"
+                    value={message}
+                    onChange={(e) => {
+                      setMessage(e.target.value);
+                    }}
                     className="focusvisible1 mt-2 px-4 py-2"
                     style={{
                       resize: "none",
@@ -385,13 +358,13 @@ function Contactus(props) {
                       lineHeight: "normal",
                     }}
                   >
-                    {errero?.message}
+                    {error?.message}
                   </div>
                 </div>
               </div>
               <div className="d-flex justify-content-center mt-5 ">
                 <input
-                  onClick={handleSubmit}
+                  onClick={validate}
                   className="focusvisible2 my-3"
                   type="button"
                   style={{
@@ -423,7 +396,8 @@ function Contactus(props) {
             background:
               "linear-gradient(282deg, rgba(193, 241, 238, 0.50) 0%, #F1F4FF 72.92%, rgba(253, 206, 165, 0.00) 100%)",
             width: "100%",
-
+            position: "relative",
+            zIndex: "3",
             borderRadius: "1rem",
           }}
         >
@@ -462,7 +436,7 @@ function Contactus(props) {
           </div>
           <div className="text-center mt-4 pb-3 d-flex justify-content-center">
             <input
-              onClick={handleSubmit}
+              // onClick={""}
               className=" "
               type="button"
               style={{
@@ -484,7 +458,7 @@ function Contactus(props) {
           </div>
         </div>
       </div>
-      {/* <Footer></Footer> */}
+      <Footer></Footer>
     </div>
   );
 }

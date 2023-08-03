@@ -495,6 +495,8 @@ function About() {
                   "linear-gradient(282deg, rgba(193, 241, 238, 0.50) 0%, #F1F4FF 72.92%, rgba(253, 206, 165, 0.00) 100%)",
                 borderRadius: "20px",
                 margin: "5rem",
+                position: "relative",
+                zIndex: "3",
               }}
             >
               <div className="invest pt-2">

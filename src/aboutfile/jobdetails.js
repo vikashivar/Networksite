@@ -34,11 +34,82 @@ function Jobdetails() {
     }
     api();
   }, []);
+  const [fn, setFn] = useState("");
+  const [ln, setLn] = useState("");
+  const [email, setEmail] = useState("");
+  const [number, setNumber] = useState("");
+  const [loc, setLoc] = useState("");
+  const [file, setFile] = useState("");
+  const [error, setError] = useState({});
+
+  const validate = () => {
+    let validform = true;
+    let errero = {};
+
+    if (!fn.trim()) {
+      validform = false;
+      errero = { ...errero, firstname: "First name is required" };
+    } else if (fn.trim().length < 3) {
+      validform = false;
+      errero = { ...errero, firstname: "Fill valid first name" };
+    }
+
+    if (!ln.trim()) {
+      validform = false;
+      errero = { ...errero, lastname: "Last name is required" };
+    } else if (ln.trim().length < 3) {
+      validform = false;
+      errero = { ...errero, lastname: "Fill valid last name" };
+    }
+
+    if (!email.trim()) {
+      validform = false;
+      errero = { ...errero, email: "Email is required" };
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+      validform = false;
+      errero = { ...errero, email: "Invalid email format" };
+    }
+
+    if (!number.trim()) {
+      validform = false;
+      errero = { ...errero, number: "Phone number is required" };
+    } else if (number.trim().length < 10) {
+      validform = false;
+      errero = { ...errero, number: "Invalid phone number" };
+    }
+
+    if (!file) {
+      validform = false;
+      errero = { ...errero, file: "document is required" };
+    }
+
+    if (!loc.trim()) {
+      validform = false;
+      errero = { ...errero, loc: "Message is required" };
+    } else if (loc.trim().length < 4) {
+      validform = false;
+      errero = { ...errero, loc: "invalid message" };
+    }
+    setError(errero);
+
+    if (validform) {
+      setFn("");
+
+      setLn("");
+
+      setEmail("");
+      setNumber("");
+      setLoc("");
+      setFile("");
+      console.log("form is submit");
+    }
+  };
 
   return (
     job && (
       <div>
         <Aboutheader1
+          aboutbackground="linear-gradient(282deg, rgba(0, 221, 208, 0.30) 0%, rgba(255, 255, 255, 0.40) 82.61%)"
           title={job.data.attributes.title}
           comheader1={<Comheader1></Comheader1>}
         ></Aboutheader1>
@@ -337,7 +408,10 @@ function Jobdetails() {
           </div>
         </div>
         {/* ----------------------------apply for this job----------------------------- */}
-        <div className="mt-5 pt-5">
+        <div
+          className="mt-5 pt-5"
+          style={{ position: "relative", zIndex: "3" }}
+        >
           <div
             className="px-5 d-flex flex-column"
             style={{ background: "rgba(80, 91, 232, 0.03)" }}
@@ -360,11 +434,21 @@ function Jobdetails() {
               <form className="">
                 <div className="d-flex justify-content-between flex-md-row flex-column">
                   <Careerform
+                    error={error?.firstname}
+                    value={fn}
+                    change={(e) => {
+                      setFn(e.target.value);
+                    }}
                     type="text"
                     name="First Name"
                     placeholder="Enter your first name"
                   ></Careerform>
                   <Careerform
+                    error={error?.lastname}
+                    value={ln}
+                    change={(e) => {
+                      setLn(e.target.value);
+                    }}
                     type="text"
                     name="Last Name"
                     placeholder="Enter your last name"
@@ -373,12 +457,22 @@ function Jobdetails() {
                 </div>
                 <div className="d-flex justify-content-between flex-md-row flex-column">
                   <Careerform
+                    error={error?.email}
+                    value={email}
+                    change={(e) => {
+                      setEmail(e.target.value);
+                    }}
                     type="text"
                     name="Email"
                     placeholder="eg: robin@gmail.com"
                   ></Careerform>
                   <Careerform
-                    type="text"
+                    error={error?.number}
+                    value={number}
+                    change={(e) => {
+                      setNumber(e.target.value);
+                    }}
+                    type="number"
                     name="Phone"
                     placeholder="Enter 10 digit phone number"
                     margin="ms-md-4"
@@ -386,16 +480,27 @@ function Jobdetails() {
                 </div>
                 <div className="d-flex justify-content-between flex-md-row flex-column">
                   <Careerform
+                    error={error?.loc}
+                    value={loc}
+                    change={(e) => {
+                      setLoc(e.target.value);
+                    }}
                     type="text"
                     name="Location"
                     placeholder="Enter your location"
                   ></Careerform>
                   <div style={{ flex: "1" }} className="d-flex flex-column">
                     <Careerform
-                      type="text"
+                      error={error?.file}
+                      value={file}
+                      change={(e) => {
+                        setFile(e.target.value);
+                      }}
+                      type="file"
                       name="Resume/CV"
                       placeholder="Upload"
                       margin="ms-md-3"
+                      paddingtop="1rem"
                     ></Careerform>
                     <div
                       className="ms-md-3 pt-2 "
@@ -416,7 +521,7 @@ function Jobdetails() {
                 <div className="mb-5 mt-3 d-flex justify-content-center">
                   <input
                     className="forminput my-5"
-                    type="submit"
+                    type="button"
                     value="Submit Application"
                     style={{
                       background: "#dce2ff",
@@ -427,9 +532,7 @@ function Jobdetails() {
                       fontWeight: 400,
                       lineHeight: "1.875rem",
                     }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                    }}
+                    onClick={validate}
                   ></input>
                 </div>
               </form>

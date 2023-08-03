@@ -5,6 +5,7 @@ import Aboutheader2 from "./aboutheader2";
 import { Link } from "react-router-dom";
 import Careersection1 from "./careersection1";
 import Carreersection2 from "./carreersection2";
+import Footer from "../home/homefile/footer";
 const careerdata = createContext();
 function Careers() {
   const [careers, setCareers] = useState();
@@ -34,7 +35,7 @@ function Careers() {
           ></Aboutheader1>
           <Aboutheader2
             aboutheader2={
-              <>
+              <div className="d-flex flex-column align-items-center">
                 <div
                   className="px-lg-5 mx-lg-2 disrupt"
                   style={{
@@ -83,7 +84,7 @@ function Careers() {
                     {careers.data.attributes.careerHeader.buttonText}
                   </Link>
                 </div>
-              </>
+              </div>
             }
           >
             {" "}
@@ -93,6 +94,7 @@ function Careers() {
             <Careersection1></Careersection1>
             <Carreersection2></Carreersection2>
           </div>
+          <Footer></Footer>
         </div>
       </careerdata.Provider>
     )

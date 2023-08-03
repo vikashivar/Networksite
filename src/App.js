@@ -24,30 +24,32 @@ import Careers from "./aboutfile/carreers";
 import Jobdetails from "./aboutfile/jobdetails";
 import Contactus from "./another/contactus";
 import "./another/anotherfile.css";
+import Verifiedasset from "./another/verifiedasset";
+import "./another/verifiedasset.css";
 
 const homeapi = createContext();
 
 function App() {
-  const [home, setHome] = useState({});
-  // useEffect(() => {
-  //   async function homeapii() {
-  //     const res = await fetch(
-  //       "https://cms.verified.network/api/homepage?populate=*"
-  //     );
-  //     const data = await res.json();
-  //     return data;
-  //   }
-  //   homeapii().then((ee) => {
-  //     setHome(ee);
-  //   });
-  // }, []);
+  const [home, setHome] = useState();
+  useEffect(() => {
+    async function homeapii() {
+      const res = await fetch(
+        "https://cms.verified.network/api/homepage?populate=*"
+      );
+      const data = await res.json();
+      return data;
+    }
+    homeapii().then((ee) => {
+      setHome(ee);
+    });
+  }, []);
 
   return (
     home && (
       <homeapi.Provider value={{ home }}>
         <BrowserRouter>
           <Routes>
-            {/* <Route path="/" element={<Home></Home>}></Route>
+            <Route path="/" element={<Home></Home>}></Route>
             <Route
               path="/individual"
               element={<Individual></Individual>}
@@ -59,8 +61,12 @@ function App() {
             <Route
               path="careers/job"
               element={<Jobdetails></Jobdetails>}
-            ></Route> */}
-            <Route path="/" element={<Contactus></Contactus>}></Route>
+            ></Route>
+            <Route path="/contact" element={<Contactus></Contactus>}></Route>
+            <Route
+              path="/assets"
+              element={<Verifiedasset></Verifiedasset>}
+            ></Route>
           </Routes>
         </BrowserRouter>
       </homeapi.Provider>

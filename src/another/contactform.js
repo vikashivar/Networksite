@@ -26,7 +26,7 @@ function Contactform(props) {
         <input
           onChange={props.change}
           name={props.name}
-          onBlur={props.onBlur}
+          value={props.value}
           className="focusvisible1 mt-3"
           type={props.type}
           autoComplete="off"
