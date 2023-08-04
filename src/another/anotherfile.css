@@ -16,13 +16,15 @@
   }
 }
 
-#country {
+#country,
+#querytype {
   -moz-appearance: none;
 
   -webkit-appearance: none;
 }
 
-#country::-ms-expand {
+#country,
+#querytype::-ms-expand {
   display: none;
 }
 
@@ -36,6 +38,24 @@
 }
 @media (max-width: 575px) {
   .needhelp {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .assetstitle {
+    font-size: 3.75rem;
+  }
+  .description {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .assetstitle {
+    font-size: 2rem;
+  }
+  .description {
     font-size: 2rem;
   }
 }

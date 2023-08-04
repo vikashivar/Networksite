@@ -365,7 +365,7 @@ function Contactus(props) {
               <div className="d-flex justify-content-center mt-5 ">
                 <input
                   onClick={validate}
-                  className="focusvisible2 my-3"
+                  className="focusvisible1 my-3"
                   type="button"
                   style={{
                     width: "18.5rem",

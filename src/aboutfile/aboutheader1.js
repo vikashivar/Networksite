@@ -35,12 +35,11 @@ function Aboutheader1(props) {
         </div>
       </div>
       <div
-        className="mt-5"
+        className="mt-5 assetstitle"
         style={{
           color: "#393939",
           textAlign: "center",
           fontFamily: "Geomanist,sans-serif",
-          fontSize: "3.75rem",
           fontStyle: "normal",
           fontWeight: 700,
           lineHeight: "normal",
