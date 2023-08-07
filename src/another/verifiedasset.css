@@ -73,7 +73,16 @@
     width: 20.93rem;
   }
 }
-
+@media (min-width: 768px) {
+  .viewdetails {
+    padding: 0rem 19rem;
+  }
+}
+@media (max-width: 767px) {
+  .viewdetails {
+    padding: 0rem 3rem;
+  }
+}
 @media (min-width: 576px) {
   .viewdetails {
     font-size: 1.25rem;
@@ -84,4 +93,11 @@
   .viewdetails {
     font-size: 0.93rem;
   }
+}
+
+.optionType {
+  border-radius: 1rem;
+  border: 2px solid #dce2ff;
+  background: #fff;
+  box-shadow: 0px 20px 50px 0px rgba(57, 57, 57, 0.08);
 }

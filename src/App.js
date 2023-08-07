@@ -70,7 +70,10 @@ function App() {
               path="/assets"
               element={<Verifiedasset></Verifiedasset>}
             ></Route>
-            <Route path="detail" element={<Assetdetail></Assetdetail>}></Route>
+            <Route
+              path="/assets/detail"
+              element={<Assetdetail></Assetdetail>}
+            ></Route>
             <Route path="helpdesk" element={<Helpdesk></Helpdesk>}></Route>
           </Routes>
         </BrowserRouter>
