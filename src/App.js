@@ -29,6 +29,8 @@ import "./another/verifiedasset.css";
 import Assetdetail from "./another/assetdetail";
 import Helpdesk from "./helpdesk/helpdesk";
 import "./helpdesk/helpdesk.css";
+import "./someextrafiles/forum.css";
+import Forum from "./someextrafiles/forum";
 
 const homeapi = createContext();
 
@@ -75,6 +77,7 @@ function App() {
               element={<Assetdetail></Assetdetail>}
             ></Route>
             <Route path="helpdesk" element={<Helpdesk></Helpdesk>}></Route>
+            <Route path="forum" element={<Forum></Forum>}></Route>
           </Routes>
         </BrowserRouter>
       </homeapi.Provider>

@@ -1,0 +1,17 @@
+.forumsearch {
+  border-radius: 1rem;
+  border: 2px solid #dce2ff;
+  color: #8f8f98;
+
+  font-family: Geomanist, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background: url("Group 502.png") no-repeat;
+  background-size: 1rem;
+  background-position: 96% center;
+}
+.forumsearch:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+}

@@ -8,6 +8,7 @@ import group3 from "./Group532.png";
 import Footer from "../home/homefile/footer";
 import { Link } from "react-router-dom";
 import Select from "react-dropdown-select";
+import ReactDropdown from "react-dropdown";
 
 function Verifiedasset() {
   const [assethome, setAssethome] = useState();
@@ -15,6 +16,9 @@ function Verifiedasset() {
   const [api3, setApi3] = useState();
   const [api4, setApi4] = useState();
   const [api5, setApi5] = useState();
+  const [serchapi, setSerchapi] = useState("");
+
+  const [data, setData] = useState();
 
   useEffect(() => {
     async function api1() {
@@ -32,8 +36,17 @@ function Verifiedasset() {
       );
       const data = await re.json();
       setAssetpro(data);
+      setData(data.data);
     }
     api2();
+    async function api3() {
+      const re = await fetch(
+        "https://cms.verified.network/api/asset-types?populate=*"
+      );
+      const data = await re.json();
+      setApi3(data);
+    }
+    api3();
     async function api5() {
       const re = await fetch(
         "https://cms.verified.network/api/countries?populate=*"
@@ -47,29 +60,73 @@ function Verifiedasset() {
 
   if (api5?.data) {
     object = [];
-    for (let a of api5.data) {
-      object.push({ name: a.attributes.name });
+    for (let a of api5?.data) {
+      object.push({ value: a.attributes.name });
     }
-    console.log(object);
+  }
+  let object1;
+  if (api3?.data) {
+    object1 = [];
+    for (let a of api3?.data) {
+      object1.push({ value: a.attributes.name });
+    }
+  }
+  const [optionvalue, setoption] = useState();
+  const [optionvalue1, setoption1] = useState();
+
+  function ffilter() {
+    let filterarray;
+    if (assetpro?.data) {
+      filterarray = assetpro.data.filter((a, b) => {
+        return (
+          a.attributes.title.includes(serchapi.trim().toLowerCase()) &&
+          a.attributes.country.data.attributes.name.includes(
+            !optionvalue ? "" : optionvalue?.value
+          ) &&
+          a.attributes.asset_type.data.attributes.name.includes(
+            !optionvalue1 ? "" : optionvalue1?.value
+          )
+        );
+      });
+      console.log(filterarray);
+    }
+    setData(filterarray);
   }
 
-  return (
-    api5 &&
-    object && (
-      <Select
-        options={object}
-        labelField={"name"}
-        valueField={"name"}
-        onChange={(values) => this.setValues(values)}
-        placeholder="All Country"
-      />
-    )
-  );
+  // return (
+  // api5 &&
+  // object && (
+  // <Select
+  //   options={object}
+  //   labelField={"name"}
+  //   valueField={"name"}
+  //   onChange={(values) => this.setValues(values)}
+  //   placeholder="All Country"
+  //   dropdownRenderer={({ props, state, methods }) => {
+  //     console.log("{ props, state, methods }", { props, state, methods });
+  //     return (
+  //       <div>
+  //         <div>{state.searchResults[0]}</div>
+  //         <div>{state.searchResults[1]}</div>
+  //         <div>{state.searchResults[2]}</div>
+  //         <div>{state.searchResults[3]}</div>
+  //         <div>{state.searchResults[4]}</div>
+  //       </div>
+  //     );
+  //   }}
+  // />
+
+  // )
+  // );
 
   return (
     assethome &&
     assetpro &&
-    api5 && (
+    api5 &&
+    api3 &&
+    object &&
+    object1 &&
+    data && (
       <div style={{}}>
         <Aboutheader1
           title={assethome?.data?.attributes?.main_heading}
@@ -92,66 +149,43 @@ function Verifiedasset() {
             </div>
           }
         ></Aboutheader1>
-        <div className="d-flex justify-content-lg-between justify-content-center flex-sm-row flex-column flex-wrap align-items-center mx-5 mt-5">
+        <div className="d-flex justify-content-lg-between justify-content-center flex-sm-row flex-column flex-wrap  mx-5 mt-5">
           <div className="position-relative mb-4">
             <input
-              placeholder="Search assets"
-              className="assetfilter assetsearch me-4 ps-5 serchfontstyle"
-              type="search"
-            ></input>
-            <img
-              src={group1}
-              style={{
-                width: "1.00775rem",
-                height: "1rem",
-                position: "absolute",
-                top: "50%",
-                left: "20px",
-                transform: "translateY(-50%)",
+              value={serchapi}
+              onChange={(e) => {
+                setSerchapi(e.target.value);
               }}
-              alt=""
-            />
+              placeholder="Search assets"
+              className="assetfilter assetsearch  ps-5 serchfontstyle"
+              type="search"
+              style={{
+                background: `url(${group1}) no-repeat 5% center`,
+                backgroundSize: "16px",
+              }}
+            ></input>
           </div>
 
-          <select
-            list="browsers1"
-            name=""
-            id="browsers1"
-            className="assetfilter assetlist me-4 px-3 serchfontstyle mb-4"
-            style={{
-              background: `url(${group})`,
-              backgroundSize: "0.70006rem 1.16694rem",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "90% center",
+          <ReactDropdown
+            options={object1}
+            onChange={(value) => {
+              setoption1(value);
             }}
-          >
-            <option style={{}} className="optionType" value="">
-              Internet{" "}
-            </option>
-            <option value="Firefox">firefox</option>
-            <option value="Chrome">chrome</option>
-            <option value="Opera">opera</option>
-            <option value="Safari">safari</option>
-          </select>
-          <select
-            style={{
-              background: `url(${group})`,
-              backgroundSize: "0.70006rem 1.16694rem",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "90% center",
+            value={optionvalue1}
+            placeholder="All Assets"
+          />
+          {/* ------------------------------------------------------ */}
+          <ReactDropdown
+            options={object}
+            onChange={(value) => {
+              setoption(value);
             }}
-            list="browsers1"
-            name=""
-            id="browsers1"
-            className="assetfilter assetlist me-4 px-3 serchfontstyle mb-4"
-          >
-            <option value="">Explorer</option>
-            <option value="Firefox">firefox</option>
-            <option value="Chrome">chrome</option>
-            <option value="Opera">opera</option>
-            <option value="Safari">safari</option>
-          </select>
+            value={optionvalue}
+            placeholder="All Countries"
+          />
+          {/* ---------------------------------------------------------- */}
           <input
+            onClick={ffilter}
             className="searchborder me-4 mb-4"
             type="button"
             value="Search"
@@ -214,7 +248,7 @@ function Verifiedasset() {
             style={{ position: "relative", zIndex: "3" }}
           >
             {" "}
-            {assetpro.data.map((a, b) => {
+            {data.map((a, b) => {
               return (
                 <Link
                   to={`/assets/detail?id=${a.id}`}
