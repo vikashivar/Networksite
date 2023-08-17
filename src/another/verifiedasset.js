@@ -9,7 +9,9 @@ import Footer from "../home/homefile/footer";
 import { Link } from "react-router-dom";
 import Select from "react-dropdown-select";
 import ReactDropdown from "react-dropdown";
-
+import axios from "axios";
+import qs from "qs";
+import gorup17 from "./Group 17538.png";
 function Verifiedasset() {
   const [assethome, setAssethome] = useState();
   const [assetpro, setAssetpro] = useState();
@@ -19,6 +21,90 @@ function Verifiedasset() {
   const [serchapi, setSerchapi] = useState("");
 
   const [data, setData] = useState();
+
+  const [optionvalue, setoption] = useState();
+  const [optionvalue1, setoption1] = useState();
+
+  const [loading, setLoading] = useState(false);
+  const [assetType, setAssetType] = useState({});
+  const [country, setCountry] = useState({});
+  const [sortOrder, setOrder] = useState("desc");
+  const [searchText, setSearchText] = useState("");
+  const [mounted, setMounted] = useState(false);
+  const [assetsList, setAssetsList] = useState([]);
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (mounted) {
+      setLoading(true);
+      setTimeout(() => {
+        getAssets();
+      }, 1000);
+    }
+  }, [sortOrder]);
+
+  const getAssets = (page = 0) => {
+    setLoading(true);
+
+    const filters = {
+      sort: [`publishedAt:${sortOrder}`],
+      filters: {},
+      populate: "*",
+    };
+
+    if (searchText) {
+      filters.filters.title = {
+        $contains: searchText,
+      };
+    }
+
+    if (country.value) {
+      filters.filters.country = {
+        id: {
+          $eq: country.value,
+        },
+      };
+    }
+
+    if (assetType.value) {
+      filters.filters.asset_type = {
+        id: {
+          $eq: assetType.value,
+        },
+      };
+    }
+
+    const query = qs.stringify(filters, {
+      encodeValuesOnly: true, // prettify URL
+    });
+
+    axios
+      .get(
+        `https://cms.verified.network/api/assets?${query}&pagination[page]=${page}`
+      )
+      .then((res) => {
+        setData(res.data?.data || []);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  const handleOrderChange = (event) => {
+    const order = event.target.value;
+    setOrder(order);
+  };
+
+  const handleSearch = () => {
+    setLoading(true);
+    setTimeout(() => {
+      getAssets();
+    }, 1000);
+  };
 
   useEffect(() => {
     async function api1() {
@@ -44,89 +130,37 @@ function Verifiedasset() {
         "https://cms.verified.network/api/asset-types?populate=*"
       );
       const data = await re.json();
-      setApi3(data);
+
+      let object1;
+      if (data) {
+        object1 = [];
+        for (let a of data.data) {
+          object1.push({ value: a.id, label: a.attributes.name });
+        }
+        setAssetsList(object1);
+      }
     }
     api3();
     async function api5() {
       const re = await fetch(
         "https://cms.verified.network/api/countries?populate=*"
       );
-      const data = await re.json();
-      setApi5(data);
+      const data = (await re.json()) || [];
+      if (data) {
+        let object = [];
+        for (let a of data.data) {
+          object.push({ value: a.id, label: a.attributes.name });
+        }
+
+        setCountries(object);
+      }
     }
     api5();
   }, []);
-  let object;
-
-  if (api5?.data) {
-    object = [];
-    for (let a of api5?.data) {
-      object.push({ value: a.attributes.name });
-    }
-  }
-  let object1;
-  if (api3?.data) {
-    object1 = [];
-    for (let a of api3?.data) {
-      object1.push({ value: a.attributes.name });
-    }
-  }
-  const [optionvalue, setoption] = useState();
-  const [optionvalue1, setoption1] = useState();
-
-  function ffilter() {
-    let filterarray;
-    if (assetpro?.data) {
-      filterarray = assetpro.data.filter((a, b) => {
-        return (
-          a.attributes.title.includes(serchapi.trim().toLowerCase()) &&
-          a.attributes.country.data.attributes.name.includes(
-            !optionvalue ? "" : optionvalue?.value
-          ) &&
-          a.attributes.asset_type.data.attributes.name.includes(
-            !optionvalue1 ? "" : optionvalue1?.value
-          )
-        );
-      });
-      console.log(filterarray);
-    }
-    setData(filterarray);
-  }
-
-  // return (
-  // api5 &&
-  // object && (
-  // <Select
-  //   options={object}
-  //   labelField={"name"}
-  //   valueField={"name"}
-  //   onChange={(values) => this.setValues(values)}
-  //   placeholder="All Country"
-  //   dropdownRenderer={({ props, state, methods }) => {
-  //     console.log("{ props, state, methods }", { props, state, methods });
-  //     return (
-  //       <div>
-  //         <div>{state.searchResults[0]}</div>
-  //         <div>{state.searchResults[1]}</div>
-  //         <div>{state.searchResults[2]}</div>
-  //         <div>{state.searchResults[3]}</div>
-  //         <div>{state.searchResults[4]}</div>
-  //       </div>
-  //     );
-  //   }}
-  // />
-
-  // )
-  // );
 
   return (
-    assethome &&
-    assetpro &&
-    api5 &&
-    api3 &&
-    object &&
-    object1 &&
-    data && (
+    data &&
+    assethome && (
       <div style={{}}>
         <Aboutheader1
           title={assethome?.data?.attributes?.main_heading}
@@ -149,64 +183,218 @@ function Verifiedasset() {
             </div>
           }
         ></Aboutheader1>
-        <div className="d-flex justify-content-lg-between justify-content-center flex-sm-row flex-column flex-wrap  mx-5 mt-5">
-          <div className="position-relative mb-4">
-            <input
-              value={serchapi}
-              onChange={(e) => {
-                setSerchapi(e.target.value);
+        <div style={{ position: "absolute", width: "100%" }}>
+          <div
+            style={{ zIndex: 1000, position: "relative" }}
+            className="d-flex justify-content-lg-between justify-content-center flex-sm-row flex-column flex-wrap  mx-5 mt-5"
+          >
+            <div className="position-relative mb-4">
+              <input
+                value={serchapi}
+                onChange={(e) => {
+                  setSerchapi(e.target.value);
+                  setSearchText(e.target.value);
+                }}
+                placeholder="Search assets"
+                className="assetfilter assetsearch  ps-5 serchfontstyle"
+                type="search"
+                style={{
+                  background: `url(${group1}) no-repeat 5% center`,
+                  backgroundSize: "16px",
+                }}
+              ></input>
+            </div>
+
+            <ReactDropdown
+              options={assetsList}
+              // value={assetType}
+              onChange={(value) => {
+                setAssetType(value);
               }}
-              placeholder="Search assets"
-              className="assetfilter assetsearch  ps-5 serchfontstyle"
-              type="search"
+              placeholder="All Assets"
+            />
+            {/* ------------------------------------------------------ */}
+            <ReactDropdown
+              options={countries}
+              onChange={(value) => {
+                setCountry(value);
+              }}
+              // value={country}
+              placeholder="All Countries"
+              keepOpen
+            />
+            {/* ---------------------------------------------------------- */}
+            <input
+              onClick={handleSearch}
+              className="searchborder me-4 mb-4"
+              type="button"
+              value="Search"
               style={{
-                background: `url(${group1}) no-repeat 5% center`,
-                backgroundSize: "16px",
+                color: "#FFF",
+                textAlign: "center",
+                fontFamily: "Geomanist,sans-serif",
+                fontSize: "1.125rem",
+                fontStyle: "normal",
+                fontWeight: 400,
+                lineHeight: "1.875rem",
+                borderRadius: "3.37rem",
+                background: "#4e59e7",
+                boxShadow: "0px 20px 50px 0px rgba(78,89,231,0.30)",
+                height: "3.37rem",
               }}
             ></input>
           </div>
-
-          <ReactDropdown
-            options={object1}
-            onChange={(value) => {
-              setoption1(value);
-            }}
-            value={optionvalue1}
-            placeholder="All Assets"
-          />
-          {/* ------------------------------------------------------ */}
-          <ReactDropdown
-            options={object}
-            onChange={(value) => {
-              setoption(value);
-            }}
-            value={optionvalue}
-            placeholder="All Countries"
-          />
-          {/* ---------------------------------------------------------- */}
-          <input
-            onClick={ffilter}
-            className="searchborder me-4 mb-4"
-            type="button"
-            value="Search"
-            style={{
-              color: "#FFF",
-              textAlign: "center",
-              fontFamily: "Geomanist,sans-serif",
-              fontSize: "1.125rem",
-              fontStyle: "normal",
-              fontWeight: 400,
-              lineHeight: "1.875rem",
-              borderRadius: "3.37rem",
-              background: "#4e59e7",
-              boxShadow: "0px 20px 50px 0px rgba(78,89,231,0.30)",
-              height: "3.37rem",
-            }}
-          ></input>
         </div>
-
-        <div className="mt-5">
-          <div className="d-flex justify-content-between mx-5 mt-5 mb-4 pt-4 pb-3">
+        {data.length ? (
+          <div
+            className=""
+            style={{ position: "relative", zIndex: 100, marginTop: "10rem" }}
+          >
+            <div className="d-flex justify-content-between mx-5 mt-5 mb-4 pt-4 pb-3">
+              <div
+                style={{
+                  color: "#393939",
+                  fontFamily: "Geomanist,sans-serif",
+                  fontSize: "2.5rem",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "normal",
+                }}
+              >
+                All{" "}
+                <span style={{ fontWeight: "700", color: "#4e59e7" }}>
+                  Assets
+                </span>
+              </div>
+              <div className="position-relative ">
+                {" "}
+                <select className="soryby px-3">
+                  <option>Sort by</option>
+                </select>
+                <div
+                  className="position-absolute"
+                  style={{
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    left: "80%",
+                  }}
+                >
+                  <img
+                    src={group3}
+                    alt=""
+                    style={{ width: "0.93rem", height: "0.75rem" }}
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="d-flex ms-5 me-4  flex-wrap  mb-5"
+              style={{ position: "relative", zIndex: "3" }}
+            >
+              {data?.map((a, b) => {
+                return (
+                  <Link
+                    to={`/assets/detail?id=${a.id}`}
+                    key={b}
+                    className="d-flex justify-content-between flex-column me-4 mb-4 "
+                    style={{
+                      borderRadius: "1rem",
+                      border: "1px solid rgba(220, 226, 255, 0.60)",
+                      background: "#FFF",
+                      boxShadow: "0px 20px 50px 0px rgba(78, 89, 231, 0.10)",
+                      height: "21.5rem",
+                      width: "21.5rem",
+                      padding: "20px",
+                    }}
+                  >
+                    <div
+                      className="d-flex justify-content-center align-items-center"
+                      style={{
+                        borderRadius: "0.5rem",
+                        background:
+                          a.id % 2 == 0
+                            ? "rgba(193,241,238,0.50)"
+                            : "rgba(220, 226,255,0.60)",
+                        width: "8.375rem",
+                        height: "2.5rem",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: a.id % 2 == 0 ? "#08C0B5" : "#8E5FF5",
+                          fontFamily: "Geomanist,sans-serif",
+                          fontSize: "1.125rem",
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "normal",
+                        }}
+                      >
+                        Category
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        color: "#393939",
+                        fontFamily: "Geomanist,sans-serif",
+                        fontSize: "1.5rem",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "normal",
+                      }}
+                    >
+                      {a.attributes.title}
+                    </div>
+                    <div
+                      style={{
+                        color: "#393939",
+                        fontFamily: "Geomanist,sans-serif",
+                        fontSize: "1.25rem",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "normal",
+                      }}
+                    >
+                      Product Name
+                    </div>
+                    <div
+                      style={{
+                        color: "#8f8f98",
+                        fontFamily: "Geomanist,sans-serif",
+                        fontSize: "1.25rem",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "normal",
+                        marginTop: "-30px",
+                      }}
+                    >
+                      {a.attributes.product_name}
+                    </div>
+                    <div className="d-flex align-items-center">
+                      <img
+                        src={group2}
+                        style={{ width: "0.83rem", height: "1rem" }}
+                      ></img>
+                      <div
+                        className="ms-3"
+                        style={{
+                          color: "#8F8F98",
+                          fontFamily: "Geomanist,sans-serif",
+                          fontSize: "1.125rem",
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "normal",
+                        }}
+                      >
+                        {a.attributes.country.data.attributes.name}
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        ) : (
+          <div className="mx-5" style={{ marginTop: "9rem" }}>
             <div
               style={{
                 color: "#393939",
@@ -217,139 +405,20 @@ function Verifiedasset() {
                 lineHeight: "normal",
               }}
             >
-              All{" "}
-              <span style={{ fontWeight: "700", color: "#4e59e7" }}>
-                Assets
-              </span>
+              No assets found
             </div>
-            <div className="position-relative ">
-              {" "}
-              <select className="soryby px-3">
-                <option>Sort by</option>
-              </select>
-              <div
-                className="position-absolute"
-                style={{
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  left: "80%",
-                }}
-              >
-                <img
-                  src={group3}
-                  alt=""
-                  style={{ width: "0.93rem", height: "0.75rem" }}
-                />
-              </div>
+            <div
+              className="d-flex justify-content-center "
+              style={{ marginTop: "4rem" }}
+            >
+              <img
+                src={gorup17}
+                style={{ maxHeight: "22.06rem", maxWidth: "13.31rem" }}
+                alt=""
+              />
             </div>
           </div>
-          <div
-            className="d-flex ms-5 me-4  flex-wrap  mb-5"
-            style={{ position: "relative", zIndex: "3" }}
-          >
-            {" "}
-            {data.map((a, b) => {
-              return (
-                <Link
-                  to={`/assets/detail?id=${a.id}`}
-                  key={b}
-                  className="d-flex justify-content-between flex-column me-4 mb-4 "
-                  style={{
-                    borderRadius: "1rem",
-                    border: "1px solid rgba(220, 226, 255, 0.60)",
-                    background: "#FFF",
-                    boxShadow: "0px 20px 50px 0px rgba(78, 89, 231, 0.10)",
-                    height: "21.5rem",
-                    width: "21.5rem",
-                    padding: "20px",
-                  }}
-                >
-                  <div
-                    className="d-flex justify-content-center align-items-center"
-                    style={{
-                      borderRadius: "0.5rem",
-                      background:
-                        a.id % 2 == 0
-                          ? "rgba(193,241,238,0.50)"
-                          : "rgba(220, 226,255,0.60)",
-                      width: "8.375rem",
-                      height: "2.5rem",
-                    }}
-                  >
-                    <div
-                      style={{
-                        color: a.id % 2 == 0 ? "#08C0B5" : "#8E5FF5",
-                        fontFamily: "Geomanist,sans-serif",
-                        fontSize: "1.125rem",
-                        fontStyle: "normal",
-                        fontWeight: 400,
-                        lineHeight: "normal",
-                      }}
-                    >
-                      Category
-                    </div>
-                  </div>
-                  <div
-                    style={{
-                      color: "#393939",
-                      fontFamily: "Geomanist,sans-serif",
-                      fontSize: "1.5rem",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "normal",
-                    }}
-                  >
-                    {a.attributes.title}
-                  </div>
-                  <div
-                    style={{
-                      color: "#393939",
-                      fontFamily: "Geomanist,sans-serif",
-                      fontSize: "1.25rem",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "normal",
-                    }}
-                  >
-                    Product Name
-                  </div>
-                  <div
-                    style={{
-                      color: "#8f8f98",
-                      fontFamily: "Geomanist,sans-serif",
-                      fontSize: "1.25rem",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "normal",
-                      marginTop: "-30px",
-                    }}
-                  >
-                    {a.attributes.product_name}
-                  </div>
-                  <div className="d-flex align-items-center">
-                    <img
-                      src={group2}
-                      style={{ width: "0.83rem", height: "1rem" }}
-                    ></img>
-                    <div
-                      className="ms-3"
-                      style={{
-                        color: "#8F8F98",
-                        fontFamily: "Geomanist,sans-serif",
-                        fontSize: "1.125rem",
-                        fontStyle: "normal",
-                        fontWeight: 400,
-                        lineHeight: "normal",
-                      }}
-                    >
-                      {a.attributes.country.data.attributes.name}
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
+        )}
         <Footer></Footer>
       </div>
     )

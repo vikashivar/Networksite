@@ -3,7 +3,7 @@ import React from "react";
 function Aboutheader2(props) {
   return (
     <div
-      className="d-flex justify-content-center"
+      className="d-flex justify-content-center mx-md-5 mx-4"
       style={{ position: "relative", zIndex: "3" }}
     >
       <div className="aboutheaderpart2 mx-5 px-md-5 px-4 d-flex justify-content-around flex-column ">
