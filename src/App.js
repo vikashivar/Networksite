@@ -31,7 +31,8 @@ import Helpdesk from "./helpdesk/helpdesk";
 import "./helpdesk/helpdesk.css";
 import "./someextrafiles/forum.css";
 import Forum from "./someextrafiles/forum";
-
+import "./someextrafiles/operators.css";
+import Operators from "./someextrafiles/operators";
 const homeapi = createContext();
 
 function App() {
@@ -78,6 +79,7 @@ function App() {
             ></Route>
             <Route path="helpdesk" element={<Helpdesk></Helpdesk>}></Route>
             <Route path="forum" element={<Forum></Forum>}></Route>
+            <Route path="operators" element={<Operators></Operators>}></Route>
           </Routes>
         </BrowserRouter>
       </homeapi.Provider>

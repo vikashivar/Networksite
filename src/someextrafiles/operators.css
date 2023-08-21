@@ -1,0 +1,107 @@
+@media (min-width: 992px) {
+  .champion {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .champion {
+    font-size: 2rem;
+  }
+  /* .logoheightwidth1 {
+    max-width: 21rem;
+    max-height: 21rem;
+  }
+   */
+}
+@media (min-width: 992px) {
+  .logoheightwidth1 {
+    max-width: 33.18rem;
+    max-height: 28.93rem;
+  }
+  .logoheightwidth2 {
+    max-width: 38.312rem;
+    max-height: 22.93rem;
+  }
+  .logoheightwidth3 {
+    max-width: 25.87rem;
+    max-height: 20.75rem;
+  }
+}
+/* @media (max-width: 991px) and (min-width: 768px) {
+  .logoheightwidth1 {
+    max-width: 21rem;
+    max-height: 21rem;
+  }
+  .logoheightwidth2 {
+    max-width: 42rem;
+    max-height: 19.93rem;
+  }
+  .logoheightwidth3 {
+    max-width: 22rem;
+    max-height: 21rem;
+  }
+} */
+
+@media (max-width: 991px) {
+  .logoheightwidth1 {
+    max-width: 23rem;
+    max-height: 20rem;
+  }
+  .logoheightwidth2 {
+    max-width: 23.43rem;
+    max-height: 14rem;
+  }
+  .logoheightwidth3 {
+    max-width: 20.62rem;
+    max-height: 19.125rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .jointhediscussion {
+    width: 14.0625rem;
+    height: 3.3125rem;
+  }
+  .viewdocumentation {
+    width: 14.1875rem;
+    height: 3.3125rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .jointhediscussion {
+    width: 18.25rem;
+    height: 3.3125rem;
+  }
+  .viewdocumentation {
+    width: 18.125rem;
+    height: 3.3125rem;
+  }
+}
+@media (min-width: 992px) {
+  .hosta {
+    height: 20.62rem;
+    padding: 5rem 4rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .hosta {
+    padding: 1.5rem 4rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .Discussion {
+    width: 18.125rem;
+    height: 4.125rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .Discussion {
+    width: 16.937rem;
+    height: 3.5rem;
+  }
+}

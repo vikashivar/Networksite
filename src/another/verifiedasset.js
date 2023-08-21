@@ -15,10 +15,10 @@ import gorup17 from "./Group 17538.png";
 function Verifiedasset() {
   const [assethome, setAssethome] = useState();
   const [assetpro, setAssetpro] = useState();
-  const [api3, setApi3] = useState();
-  const [api4, setApi4] = useState();
-  const [api5, setApi5] = useState();
-  const [serchapi, setSerchapi] = useState("");
+  // const [api3, setApi3] = useState();
+  // const [api4, setApi4] = useState();
+  // const [api5, setApi5] = useState();
+  // const [serchapi, setSerchapi] = useState("");
 
   const [data, setData] = useState();
 
@@ -33,6 +33,7 @@ function Verifiedasset() {
   const [mounted, setMounted] = useState(false);
   const [assetsList, setAssetsList] = useState([]);
   const [countries, setCountries] = useState([]);
+  const [isFilterApply, setIsFilterApply] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -133,7 +134,7 @@ function Verifiedasset() {
 
       let object1;
       if (data) {
-        object1 = [];
+        object1 = [{ value: "", label: "All Assets" }];
         for (let a of data.data) {
           object1.push({ value: a.id, label: a.attributes.name });
         }
@@ -147,7 +148,7 @@ function Verifiedasset() {
       );
       const data = (await re.json()) || [];
       if (data) {
-        let object = [];
+        let object = [{ value: "", label: "All Country" }];
         for (let a of data.data) {
           object.push({ value: a.id, label: a.attributes.name });
         }
@@ -183,16 +184,15 @@ function Verifiedasset() {
             </div>
           }
         ></Aboutheader1>
-        <div style={{ position: "absolute", width: "100%" }}>
+        <div style={{ position: "absolute", width: "100%", zIndex: "40" }}>
           <div
-            style={{ zIndex: 1000, position: "relative" }}
+            style={{ zIndex: 10, position: "relative" }}
             className="d-flex justify-content-lg-between justify-content-center flex-sm-row flex-column flex-wrap  mx-5 mt-5"
           >
             <div className="position-relative mb-4">
               <input
-                value={serchapi}
+                value={searchText}
                 onChange={(e) => {
-                  setSerchapi(e.target.value);
                   setSearchText(e.target.value);
                 }}
                 placeholder="Search assets"
@@ -221,11 +221,18 @@ function Verifiedasset() {
               }}
               // value={country}
               placeholder="All Countries"
-              keepOpen
             />
             {/* ---------------------------------------------------------- */}
             <input
-              onClick={handleSearch}
+              onClick={() => {
+                handleSearch();
+
+                if (!assetType?.value && !country?.value && !searchText) {
+                  setIsFilterApply(false);
+                } else {
+                  setIsFilterApply(true);
+                }
+              }}
               className="searchborder me-4 mb-4"
               type="button"
               value="Search"
@@ -248,10 +255,12 @@ function Verifiedasset() {
         {data.length ? (
           <div
             className=""
-            style={{ position: "relative", zIndex: 100, marginTop: "10rem" }}
+            style={{ position: "relative", zIndex: 9, marginTop: "10rem" }}
           >
-            <div className="d-flex justify-content-between mx-5 mt-5 mb-4 pt-4 pb-3">
+            {/* ========================================================================================================= */}
+            {isFilterApply ? (
               <div
+                className="mx-5"
                 style={{
                   color: "#393939",
                   fontFamily: "Geomanist,sans-serif",
@@ -259,34 +268,57 @@ function Verifiedasset() {
                   fontStyle: "normal",
                   fontWeight: 400,
                   lineHeight: "normal",
+                  marginBottom: "4rem",
                 }}
               >
-                All{" "}
-                <span style={{ fontWeight: "700", color: "#4e59e7" }}>
-                  Assets
-                </span>
+                {data.length} Assets found
               </div>
-              <div className="position-relative ">
-                {" "}
-                <select className="soryby px-3">
-                  <option>Sort by</option>
-                </select>
+            ) : (
+              <div className="d-flex justify-content-between mx-5 mt-5 mb-4 pt-4 pb-3">
                 <div
-                  className="position-absolute"
                   style={{
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    left: "80%",
+                    color: "#393939",
+                    fontFamily: "Geomanist,sans-serif",
+                    fontSize: "2.5rem",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "normal",
                   }}
                 >
-                  <img
-                    src={group3}
-                    alt=""
-                    style={{ width: "0.93rem", height: "0.75rem" }}
-                  />
+                  All{" "}
+                  <span style={{ fontWeight: "700", color: "#4e59e7" }}>
+                    Assets
+                  </span>
+                </div>
+                <div className="position-relative ">
+                  {" "}
+                  <select
+                    style={{ position: "relative" }}
+                    className="soryby px-3"
+                    onChange={handleOrderChange}
+                    placeholder="Sort by"
+                  >
+                    <option disabled>Sort by</option>
+                    <option value="desc">New to Old</option>
+                    <option value="asc">Old to New</option>
+                  </select>
+                  <div
+                    className="position-absolute"
+                    style={{
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      left: "80%",
+                    }}
+                  >
+                    <img
+                      src={group3}
+                      alt=""
+                      style={{ width: "0.93rem", height: "0.75rem" }}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
             <div
               className="d-flex ms-5 me-4  flex-wrap  mb-5"
               style={{ position: "relative", zIndex: "3" }}

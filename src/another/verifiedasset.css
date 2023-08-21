@@ -46,6 +46,10 @@
   -webkit-appearance: none;
 }
 
+.soryby:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+
 #browsers::-ms-expand {
   display: none;
 }
