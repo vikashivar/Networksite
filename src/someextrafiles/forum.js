@@ -10,9 +10,102 @@ import Features from "../individualsfile/features";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 import Comheader1 from "../aboutfile/comheader1";
+import moment from "moment/moment";
+import Forumcat from "./forumcat";
+import axios from "axios";
+import qs from "qs";
 
 function Forum() {
   const [forumapi, setForumapi] = useState();
+  const [data, setData] = useState();
+
+  const [loading, setLoading] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [searchTerm, setSearchTerm] = useState();
+  const [category, setCategory] = useState("");
+  const [categorydata, setCategorydata] = useState();
+  // const [refetch, setRefetch] = useState();
+  const [isAnswered, setAnswered] = useState("");
+  const [isSolved, setSolved] = useState("");
+  console.log(category);
+
+  const [questions, setQuestions] = useState({});
+
+  // const { addToast } = useToasts();
+  const questionsListQuery = (page, filters = {}) =>
+    qs.stringify(
+      {
+        ...filters,
+        pagination: {
+          page,
+          // pageSize: LIST_PAGE_SIZE,
+        },
+        populate: "*",
+      },
+      {
+        encodeValuesOnly: true,
+      }
+    );
+
+  useEffect(() => {
+    if (searchTerm) {
+      setLoading(true);
+    } else {
+      setLoading(false);
+    }
+  }, [searchTerm, category]);
+
+  useEffect(() => {
+    onPageChange();
+  }, [searchTerm]);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const onPageChange = async (page = 0) => {
+    setLoading(true);
+    const filters = { filters: {} };
+
+    // filters.filters.user.id = {
+    //   $eq: user.id,
+    // };
+
+    filters.filters.isSolved = {
+      $eq: isSolved,
+    };
+
+    filters.filters.isAnswered = {
+      $eq: isAnswered,
+    };
+
+    if (searchTerm) {
+      filters.filters.title = {
+        $contains: searchTerm,
+      };
+    }
+    if (category) {
+      filters.filters.category = {
+        id: {
+          $eq: category,
+        },
+      };
+    }
+    const query = questionsListQuery(page, filters);
+
+    axios
+      .get(`https://cms.verified.network/api/questions?${query}`)
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((error) => {})
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  console.log(data);
+  // -----------------------------------------------------------
 
   useEffect(() => {
     async function api1() {
@@ -24,18 +117,24 @@ function Forum() {
     }
     api1().then((e) => {
       setForumapi(e);
-      console.log(e.data.attributes.seoData.metaDescription);
     });
+
+    async function api2() {
+      const re = await fetch(
+        "https://cms.verified.network/api/categories?populate=*"
+      );
+      const data = await re.json();
+      setCategorydata(data);
+    }
+    api2();
   }, []);
+
   let formheader;
   if (forumapi) {
     formheader = forumapi.data.attributes.seoData.metaDescription.split(" ");
     var formheader1 = formheader.slice(0, formheader.length - 2);
     var formheader2 = formheader.slice(formheader.length - 2);
   }
-  console.log(formheader);
-  console.log(formheader1);
-  console.log(formheader2);
 
   const [index, setIndex] = useState();
   const selectcategry = [
@@ -43,29 +142,34 @@ function Forum() {
       img: gorup1,
       width: "2.50rem",
       height: "2.60rem",
-      Text: "Individuals",
+      Text: categorydata?.data[0]?.attributes?.name,
+      id: categorydata?.data[0].id,
     },
     {
       img: gorup2,
       width: "2.88rem",
       height: "2.82rem",
-      Text: "Businesses",
+      Text: categorydata?.data[1]?.attributes?.name,
+      id: categorydata?.data[1].id,
     },
     {
       img: gorup3,
       width: "2.98rem",
       height: "3.05rem",
-      Text: "Service Providers",
+      Text: categorydata?.data[2]?.attributes?.name,
+      id: categorydata?.data[2].id,
     },
     {
       img: gorup4,
       width: "2.24rem",
       height: "2.62rem",
-      Text: "Operators",
+      Text: categorydata?.data[3]?.attributes?.name,
+      id: categorydata?.data[3].id,
     },
   ];
   return (
-    forumapi && (
+    forumapi &&
+    data && (
       <div>
         <div>
           <Aboutheader1
@@ -110,6 +214,11 @@ function Forum() {
                 <div style={{}} className="mt-5 d-flex justify-content-center">
                   {" "}
                   <input
+                    onChange={(e) => {
+                      setTimeout(() => {
+                        setSearchTerm(e.target.value);
+                      }, 1000);
+                    }}
                     placeholder="Search forum"
                     type="search"
                     className="forumsearch px-4"
@@ -144,6 +253,9 @@ function Forum() {
             {selectcategry.map((a, b) => {
               return (
                 <div
+                  onClick={(e) => {
+                    setCategory(String(a.id));
+                  }}
                   className="d-flex flex-column align-items-center justify-content-evenly me-3 mb-5"
                   key={b}
                   style={{
@@ -151,6 +263,7 @@ function Forum() {
                     height: "15rem",
                     background: "rgba(8,192,181,0.10)",
                     borderRadius: "20px",
+                    cursor: "pointer",
                   }}
                 >
                   <div
@@ -250,6 +363,9 @@ function Forum() {
                   ></div>
                 </Tab>
                 <Tab
+                  onClick={() => {
+                    // setSolved(true);
+                  }}
                   style={{ cursor: "pointer" }}
                   className="d-flex justify-content-center align-items-center flex-column"
                 >
@@ -267,6 +383,9 @@ function Forum() {
                   ></div>
                 </Tab>
                 <Tab
+                  onClick={() => {
+                    // setAnswered(false);
+                  }}
                   style={{ cursor: "pointer" }}
                   className="d-flex justify-content-center align-items-center flex-column"
                 >
@@ -298,136 +417,24 @@ function Forum() {
               </TabList>
 
               <TabPanel className="">
-                <h2>Any content 1</h2>
+                <Forumcat Arrya={data.data}></Forumcat>
               </TabPanel>
               <TabPanel>
-                <h2>Any content 2</h2>
+                <Forumcat Arrya={data.data}></Forumcat>
               </TabPanel>
               <TabPanel>
-                <h2>Any content 3</h2>
+                <Forumcat Arrya={data.data}></Forumcat>
               </TabPanel>
               <TabPanel>
-                <h2>Any content 4</h2>
+                <Forumcat Arrya={data.data}></Forumcat>
               </TabPanel>
               <TabPanel>
-                <h2>Any content 5</h2>
+                <Forumcat Arrya={data.data}></Forumcat>
               </TabPanel>
             </Tabs>
           </div>
         </div>
         {/* ================================================================= */}
-        <div className="m-5">
-          <div
-            className="px-4 pt-4 pb-3"
-            style={{
-              borderRadius: "1.25rem",
-              border: "1px solid #dce2ff",
-              boxShadow: "0px 0px 50px 0px rgba(78,89,231,0.10)",
-            }}
-          >
-            <div
-              className="p-1 px-2"
-              style={{
-                color: "#393939",
-                fontFamily: "Geomanist,sans-serif",
-                fontSize: "1.125rem",
-                fontStyle: "normal",
-                fontWeight: 400,
-                lineFeight: "2rem",
-              }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,amet,
-              consectetur adipiscing elit, Ut elit tellus, Iuctus nec ullamcrper
-              mattis,pulvinar dapibus leo, Interger suscipit jso vel iaculis
-              scelerisque.
-            </div>
-            <div className="d-flex justify-content-between align-items-lg-center flex-wrap px-2 py-2 mt-3 flex-md-row flex-column">
-              <div className="d-flex align-items-center ">
-                <div
-                  style={{
-                    width: "4rem",
-                    height: "4rem",
-                    background: "red",
-                    borderRadius: "30px",
-                  }}
-                ></div>
-                <div
-                  className="ms-4 "
-                  style={{
-                    color: "#4E59E7",
-                    fontFamily: "Geomanist,sans-serif",
-                    fontSize: "1.125rem",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "normal",
-                  }}
-                >
-                  Asked by Rahul
-                </div>
-              </div>
-              <div className="d-flex align-items-center  mt-md-0 mt-4  minutes">
-                <div
-                  style={{
-                    color: "#8f8f98",
-                    fontFamily: "Geomanist,sans-serif",
-                    fontSize: "1.125rem",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "normal",
-                  }}
-                >
-                  2 minutes ago
-                </div>
-                <div className="d-flex align-items-center ps-4">
-                  <div
-                    style={{
-                      width: "0.5rem",
-                      height: "0.5rem",
-                      background: "#505be7",
-                      borderRadius: "4px",
-                    }}
-                  ></div>
-                  <div
-                    className="ps-3"
-                    style={{
-                      color: "#8f8f98",
-                      fontFamily: "Geomanist,sans-serif",
-                      fontSize: "1.125rem",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "normal",
-                    }}
-                  >
-                    4 replies
-                  </div>
-                </div>
-                <div className="d-flex align-items-center ps-3">
-                  <div
-                    style={{
-                      width: "0.5rem",
-                      height: "0.5rem",
-                      background: "#505be7",
-                      borderRadius: "4px",
-                    }}
-                  ></div>
-                  <div
-                    className="ps-3"
-                    style={{
-                      color: "#8f8f98",
-                      fontFamily: "Geomanist,sans-serif",
-                      fontSize: "1.125rem",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "normal",
-                    }}
-                  >
-                    2 views
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     )
   );

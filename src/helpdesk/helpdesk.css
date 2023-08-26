@@ -28,7 +28,26 @@
 .accordclass {
   background: rgba(255, 255, 255, 0.5);
   border: 3px solid white;
-  box-shadow: (0px 20px 50px rgba(0, 0, 0, 0.08));
-  width: 34.81rem;
-  height: 5.125rem;
+  min-height: 5.125rem;
+  border-radius: 16px;
+  box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.08);
+  padding-left: 26px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 920px) {
+  .accordclass1 {
+    min-width: 25rem;
+    width: 47%;
+  }
+}
+
+@media (max-width: 919px) {
+  .accordclass1 {
+    width: 100%;
+  }
+}
+
+.accordclass2 {
+  width: 100%;
 }

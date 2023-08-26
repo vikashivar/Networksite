@@ -15,10 +15,6 @@ import gorup17 from "./Group 17538.png";
 function Verifiedasset() {
   const [assethome, setAssethome] = useState();
   const [assetpro, setAssetpro] = useState();
-  // const [api3, setApi3] = useState();
-  // const [api4, setApi4] = useState();
-  // const [api5, setApi5] = useState();
-  // const [serchapi, setSerchapi] = useState("");
 
   const [data, setData] = useState();
 
@@ -89,6 +85,7 @@ function Verifiedasset() {
       )
       .then((res) => {
         setData(res.data?.data || []);
+        console.log(res.data);
       })
       .finally(() => {
         setLoading(false);
