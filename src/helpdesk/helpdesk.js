@@ -17,6 +17,8 @@ import pic1 from "./Слой 7.png";
 import qs from "qs";
 import axios from "axios";
 import { array, date } from "yup";
+import { Link } from "react-router-dom";
+import Footer from "../home/homefile/footer";
 
 function Helpdesk() {
   const [helpdata, sethelpdata] = useState();
@@ -428,7 +430,8 @@ function Helpdesk() {
                 Ask questions, and get answers from the experts.
               </div>
             </div>
-            <div
+            <Link
+              to="/forum"
               className="d-flex justify-content-center align-items-center mt-lg-0 mt-5 Discussion "
               style={{
                 borderRadius: "2.06rem",
@@ -442,11 +445,11 @@ function Helpdesk() {
                 lineHeight: "1.875rem",
               }}
             >
-              Join the Discussion
-            </div>
+              Visit our forum
+            </Link>
           </div>
         </div>
-
+        <Footer></Footer>
         {/* ------------------------------------------------------------ */}
       </div>
     )

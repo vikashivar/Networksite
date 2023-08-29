@@ -34,7 +34,7 @@ function Home() {
         <Homesection4></Homesection4>
         <Homesection5></Homesection5>
         <Homesection6></Homesection6>
-        <Homesection7></Homesection7>
+        <Homesection7 link="https://invest.verified.network"></Homesection7>
         <Footer></Footer>
       </div>
     </>

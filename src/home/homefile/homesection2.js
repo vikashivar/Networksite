@@ -23,7 +23,7 @@ function Homesection2(props) {
       title: section2.home.data.attributes.UsecaseCard[0].title,
       subtitle: section2.home.data.attributes.UsecaseCard[0].subtitle,
       description: section2.home.data.attributes.UsecaseCard[0].description,
-      linkUrl: section2.home.data.attributes.UsecaseCard[0].title.linkUrl,
+      linkUrl: section2.home.data.attributes.UsecaseCard[0].linkUrl,
       direction: "row",
       homesectionmargin: "homesectionmargin1",
     },
@@ -38,7 +38,7 @@ function Homesection2(props) {
       title: section2.home.data.attributes.UsecaseCard[1].title,
       subtitle: section2.home.data.attributes.UsecaseCard[1].subtitle,
       description: section2.home.data.attributes.UsecaseCard[1].description,
-      linkUrl: section2.home.data.attributes.UsecaseCard[1].title.linkUrl,
+      linkUrl: section2.home.data.attributes.UsecaseCard[1].linkUrl,
       direction: "row-reverse",
       homesectionmargin: "homesectionmargin2",
     },
@@ -53,11 +53,12 @@ function Homesection2(props) {
       title: section2.home.data.attributes.UsecaseCard[2].title,
       subtitle: section2.home.data.attributes.UsecaseCard[2].subtitle,
       description: section2.home.data.attributes.UsecaseCard[2].description,
-      linkUrl: section2.home.data.attributes.UsecaseCard[2].title.linkUrl,
+      linkUrl: section2.home.data.attributes.UsecaseCard[2].linkUrl,
       direction: "row",
       homesectionmargin: "homesectionmargin3",
     },
   ];
+
   return (
     <div className="" style={{ margin: "0rem 6rem" }}>
       {homesection.map((a, b) => {
@@ -101,11 +102,14 @@ function Homesection2(props) {
                 </span>
               </div>
               <div className="subtitle">{a.subtitle}</div>
-              <div className="description mt-5 text-lg-start text-center">
+              <div
+                className="description mt-5 text-lg-start text-center"
+                style={{ fontSize: "1.125rem" }}
+              >
                 {a.description}
               </div>
-              <a
-                href={a.linkUrl}
+              <Link
+                to={a.linkUrl}
                 style={{ color: a.color }}
                 className="learnmore mt-4 d-flex justify-content-start align-items-center "
               >
@@ -114,7 +118,7 @@ function Homesection2(props) {
                   className="fa-solid fa-arrow-left-long fa-rotate-180 fa-sm ms-2"
                   style={{ color: a.color }}
                 ></i>
-              </a>
+              </Link>
             </div>
           </div>
         );

@@ -20,6 +20,7 @@ function Business() {
     busiapi();
   }, []);
 
+  console.log(busi);
   return (
     busi && (
       <busistore.Provider value={{ busi }}>

@@ -14,6 +14,8 @@ import moment from "moment/moment";
 import Forumcat from "./forumcat";
 import axios from "axios";
 import qs from "qs";
+import Footer from "../home/homefile/footer";
+import Pp from "../pp";
 
 function Forum() {
   const [forumapi, setForumapi] = useState();
@@ -299,7 +301,7 @@ function Forum() {
             })}
           </div>
         </div>
-        <div>
+        <div className="" style={{ position: "relative", zIndex: 1000 }}>
           <div className="allforum mx-5 my-5">
             All<span style={{ color: "#4e59e7", fontWeight: 700 }}> Forum</span>{" "}
             Activity
@@ -412,7 +414,7 @@ function Forum() {
                     cursor: "pointer",
                   }}
                 >
-                  Ask Question
+                  <Pp></Pp>
                 </Tab>
               </TabList>
 
@@ -434,6 +436,7 @@ function Forum() {
             </Tabs>
           </div>
         </div>
+        <Footer></Footer>
         {/* ================================================================= */}
       </div>
     )

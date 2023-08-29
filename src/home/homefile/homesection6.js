@@ -13,9 +13,10 @@ function Homesection6() {
   const array6 = array1.slice(arinc, ardec);
   const arraydownlod = section6.home.data.attributes.downloadCta;
   const section6heading = arraydownlod.heading.split("///");
+  console.log(array1);
 
   function plushh() {
-    if (ardec === array1.length) {
+    if (ardec >= array1.length) {
       setArinc(array1.length - 3);
       setArdec(array1.length);
     } else {
@@ -24,7 +25,7 @@ function Homesection6() {
     }
   }
   function minuss() {
-    if (ardec === 3) {
+    if (ardec >= array1.length - 1) {
       setArinc(0);
       setArdec(3);
     } else {
@@ -33,19 +34,33 @@ function Homesection6() {
     }
   }
 
+  function allsee() {
+    setArinc(0);
+    setArdec(array1.length);
+  }
+  console.log(window.innerWidth);
+
   return (
     <div style={{ background: "rgba(216, 198, 255, 0.11)" }}>
       <div className="mx-5 pt-5 ">
         <div className="pt-4">
-          <div className="d-flex justify-content-between align-items-center mb-5 pb-3">
+          <div className="d-flex justify-content-between align-items-center mb-5 pb-3 ">
             <div className="leatest">Leatest News</div>
-            <div className="see">see all</div>
+            <div className="see" style={{ cursor: "pointer" }} onClick={allsee}>
+              see all
+            </div>
           </div>
           <div>
-            <div className="d-flex flex-md-row flex-column   ">
+            <div
+              className="d-flex flex-md-row flex-column "
+              style={{ flexWrap: array1.length === ardec ? "wrap" : "nowrap" }}
+            >
               {array6.map((a, b) => {
                 return (
-                  <div className="cardnews ms-4 p-4 mb-md-0 mb-5" key={b}>
+                  <div
+                    className="cardnews cardnews1 ms-4 p-4 mb-md-0 mb-5"
+                    key={b}
+                  >
                     <div
                       className="d-flex justify-content-center align-items-center"
                       style={{

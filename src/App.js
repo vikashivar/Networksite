@@ -33,6 +33,7 @@ import "./someextrafiles/forum.css";
 import Forum from "./someextrafiles/forum";
 import "./someextrafiles/operators.css";
 import Operators from "./someextrafiles/operators";
+import Pp from "./pp";
 const homeapi = createContext();
 
 function App() {
@@ -63,7 +64,7 @@ function App() {
             <Route path="/business" element={<Business></Business>}></Route>
             <Route path="/service" element={<Service></Service>}></Route>
             <Route path="/About" element={<About></About>}></Route>
-            <Route path="/careers" element={<Careers></Careers>}></Route>
+            <Route path="/career" element={<Careers></Careers>}></Route>
             <Route
               path="careers/job"
               element={<Jobdetails></Jobdetails>}
@@ -78,7 +79,7 @@ function App() {
               element={<Assetdetail></Assetdetail>}
             ></Route>
             <Route path="helpdesk" element={<Helpdesk></Helpdesk>}></Route>
-            <Route path="forum" element={<Forum></Forum>}></Route>
+            <Route path="/forum" element={<Forum></Forum>}></Route>
             <Route path="operators" element={<Operators></Operators>}></Route>
           </Routes>
         </BrowserRouter>

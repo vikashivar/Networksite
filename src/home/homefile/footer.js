@@ -34,7 +34,7 @@ function Footer() {
               </div>
             </div>
             <div className="d-flex flex-column m-4">
-              <Link className="footerheading mb-5" to={footerdata[0].linkUrl}>
+              <Link className="footerheading mb-5" to={"/individual"}>
                 Individuals
               </Link>
               <Link className="footeraccount" to={footerdata[0].linkUrl}>
@@ -55,7 +55,7 @@ function Footer() {
             </div>
 
             <div className="d-flex  flex-column m-4">
-              <Link className="footerheading mb-5" to={footerdata[1].linkUrl}>
+              <Link className="footerheading mb-5" to={"/business"}>
                 Businesses
               </Link>
               <Link className="footeraccount" to={footerdata[1].linkUrl}>
@@ -75,7 +75,7 @@ function Footer() {
               </Link>
             </div>
             <div className="d-flex flex-column m-4">
-              <Link className="footerheading mb-5" to={footerdata[2].linkUrl}>
+              <Link className="footerheading mb-5" to={"/service"}>
                 Service Providers
               </Link>
               <Link className="footeraccount" to={footerdata[2].linkUrl}>
@@ -104,14 +104,14 @@ function Footer() {
               <Link className="footeraccount" to="/assets">
                 Assets
               </Link>
-              <Link className="footeraccount" to="/careers">
+              <Link className="footeraccount" to="/career">
                 Careers
               </Link>
               <Link className="footeraccount" to="/contact">
                 Contact Us
               </Link>
-              <Link className="footeraccount" to="/">
-                Blog
+              <Link className="footeraccount" to="/Forum">
+                Forum
               </Link>
             </div>
             <div className="d-flex flex-column my-4 ms-4">

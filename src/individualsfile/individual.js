@@ -31,6 +31,8 @@ function Individual() {
     indiheader = indi?.data.attributes.hero;
     headerheading = indiheader?.heading.split("///");
   }
+  console.log(indi?.data?.attributes?.ctaCardDetails?.buttonCtaLink);
+
   return (
     indi && (
       <indistore.Provider value={{ indi }}>
@@ -51,7 +53,7 @@ function Individual() {
             today={indiheader.pitch}
             pg={
               <a
-                href={indiheader.palyStoreLink}
+                href={indiheader?.playStoreLink}
                 className="d-flex justify-content-center align-items-center"
                 style={{
                   width: "10.5rem",
@@ -98,7 +100,9 @@ function Individual() {
             <Indiquestion></Indiquestion>
             <Download></Download>
           </div>
-          <Homesection7></Homesection7>
+          <Homesection7
+            link={indi?.data?.attributes?.ctaCardDetails?.buttonCtaLink}
+          ></Homesection7>
           <Footer></Footer>
         </div>
       </indistore.Provider>

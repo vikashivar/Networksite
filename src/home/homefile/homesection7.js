@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { homeapi } from "../../App";
 
-function Homesection7() {
+function Homesection7(props) {
   const section7 = useContext(homeapi);
   const apisection7 = section7.home.data.attributes.ctaCardDetails;
   const content = apisection7.content.split("///");
@@ -29,7 +29,7 @@ function Homesection7() {
             {" "}
             <Link
               className="getstart d-flex justify-content-center align-items-center"
-              to={apisection7.buttonCtaLink}
+              to={props.link}
             >
               {apisection7.buttonText}
             </Link>

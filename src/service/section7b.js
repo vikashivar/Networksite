@@ -5,7 +5,6 @@ import { serstore } from "./service";
 function Section7b() {
   const sectionapi = useContext(serstore).ser.data.attributes.CtaCardDetails;
   const contect = sectionapi.heading.split("///");
-  console.log(contect);
 
   return (
     <div>
@@ -26,7 +25,7 @@ function Section7b() {
               {contect[1]}
             </span>
           </div>
-          <div className="pb-5 mt-5 d-flex">
+          <div className="pb-5 mt-5 d-flex flex-md-nowrap flex-wrap justify-content-center">
             {" "}
             <Link
               className=" d-flex justify-content-center align-items-center my-3 "
@@ -47,7 +46,7 @@ function Section7b() {
               {sectionapi.primaryButtonText}
             </Link>
             <Link
-              className="d-flex justify-content-center align-items-center my-3 "
+              className="d-flex justify-content-center align-items-center my-3 ms-md-4"
               style={{
                 width: "15rem",
                 height: "4.125rem",

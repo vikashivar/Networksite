@@ -24,7 +24,7 @@ function Serhome() {
         today={serheader.pitch}
         pg={
           <a
-            href={serheader.palyStoreLink}
+            href={serheader.playStoreLink}
             className="d-flex justify-content-center align-items-center"
             style={{
               width: "10.5rem",
