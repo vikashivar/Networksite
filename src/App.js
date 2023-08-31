@@ -34,6 +34,9 @@ import Forum from "./someextrafiles/forum";
 import "./someextrafiles/operators.css";
 import Operators from "./someextrafiles/operators";
 import Pp from "./pp";
+import Helpdeskarticle from "./helpdesk/helpdeskarticle";
+import Developers from "./someextrafiles/developers";
+import Investors from "./someextrafiles/investors";
 const homeapi = createContext();
 
 function App() {
@@ -81,6 +84,15 @@ function App() {
             <Route path="helpdesk" element={<Helpdesk></Helpdesk>}></Route>
             <Route path="/forum" element={<Forum></Forum>}></Route>
             <Route path="operators" element={<Operators></Operators>}></Route>
+            <Route
+              path="/hepldestarticles"
+              element={<Helpdeskarticle></Helpdeskarticle>}
+            ></Route>
+            <Route
+              path="developers"
+              element={<Developers></Developers>}
+            ></Route>
+            <Route path="investors" element={<Investors></Investors>}></Route>
           </Routes>
         </BrowserRouter>
       </homeapi.Provider>

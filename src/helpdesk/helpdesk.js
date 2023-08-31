@@ -19,6 +19,7 @@ import axios from "axios";
 import { array, date } from "yup";
 import { Link } from "react-router-dom";
 import Footer from "../home/homefile/footer";
+import group5 from "./Group 503.png";
 
 function Helpdesk() {
   const [helpdata, sethelpdata] = useState();
@@ -29,10 +30,8 @@ function Helpdesk() {
   const [pparray, setpparray] = useState();
   const [paging, setpaging] = useState();
   const [parray, setparray] = useState([]);
-  console.log(paging);
 
   useEffect(() => {
-    console.log(page);
     let parray = [];
     if (pparray) {
       let pagearray = pparray.data.meta.pagination.page;
@@ -130,8 +129,9 @@ function Helpdesk() {
               >
                 How can <span style={{ fontWeight: "700" }}>we help?</span>
               </div>
-              <div className="position-relative mt-4">
+              <div className="position-relative mt-5">
                 <input
+                  value={searchlist}
                   onChange={(e) => {
                     setSearchlist(e.target.value);
                   }}
@@ -158,6 +158,49 @@ function Helpdesk() {
                   }}
                   alt=""
                 />
+              </div>
+              <div className="mt-2">
+                <div
+                  className="helpsearch1 "
+                  style={{
+                    background: "#fff",
+                    borderRadius: "1rem",
+                    boxShadow: "0px 20px 50px 0px rgba(8,192,181,0.20)",
+                  }}
+                >
+                  {searchlist &&
+                    helpdata.map((a, b) => {
+                      return (
+                        <div
+                          className="d-flex align-items-center p-4"
+                          key={b}
+                          onClick={(e) => {
+                            setSearchlist(e.target.innerText);
+                          }}
+                          style={{ cursor: "pointer" }}
+                        >
+                          <img
+                            src={group5}
+                            style={{ width: "0.88rem", height: "0.875rem" }}
+                          />
+                          <div
+                            className="ms-4"
+                            style={{
+                              color: "#8F8F98",
+                              textAlign: "center",
+                              fontFamily: "Geomanist,sans-serif",
+                              fontSize: "1.125rem",
+                              fontStyle: "normal",
+                              fontWeight: 400,
+                              lineHeight: "normal",
+                            }}
+                          >
+                            {a?.attributes?.title}
+                          </div>
+                        </div>
+                      );
+                    })}
+                </div>
               </div>
             </div>
           }
@@ -289,18 +332,23 @@ function Helpdesk() {
                       style={{ paddingTop: "25px" }}
                     >
                       <AccordionItemHeading>
-                        <AccordionItemButton className="d-flex justify-content-between align-items-center ">
-                          <div>{a.attributes.title}</div>
-                          <img
-                            className=""
-                            src={pic1}
-                            style={{
-                              width: "0,979rem",
-                              height: "0.587rem",
-                              paddingRight: "30px",
-                            }}
-                            alt=""
-                          />
+                        <AccordionItemButton>
+                          <Link
+                            className="d-flex justify-content-between align-items-center"
+                            to={`/hepldestarticles?id=${b + 1}`}
+                          >
+                            <div>{a.attributes.title}</div>
+                            <img
+                              className=""
+                              src={pic1}
+                              style={{
+                                width: "0,979rem",
+                                height: "0.587rem",
+                                paddingRight: "30px",
+                              }}
+                              alt=""
+                            />
+                          </Link>
                         </AccordionItemButton>
                       </AccordionItemHeading>
                       <AccordionItemPanel className="mt-2">

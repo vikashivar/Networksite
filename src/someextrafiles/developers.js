@@ -2,17 +2,17 @@ import React, { useEffect, useState } from "react";
 import Aboutheader1 from "../aboutfile/aboutheader1";
 import Comheader1 from "../aboutfile/comheader1";
 import Aboutheader2 from "../aboutfile/aboutheader2";
-import pic1 from "./O1 1.png";
+import pic1 from "./g1.png";
 import pic2 from "./Group.png";
-import pic4 from "./Group 17547 (1).png";
-import pic3 from "./O2 1.png";
+import pic4 from "./g3.png";
+import pic3 from "./g2.png";
 import pic5 from "./article1.png";
 import pic6 from "./article 2.png";
 import pic7 from "./article3.png";
 import Footer from "../home/homefile/footer";
 import { wait } from "@testing-library/user-event/dist/utils";
 
-function Operators() {
+function Developers() {
   const [data, setData] = useState();
 
   useEffect(() => {
@@ -80,7 +80,7 @@ function Operators() {
         <div>
           <Aboutheader1
             title={data.title}
-            aboutbackground="linear-gradient(282deg, rgba(255, 226, 228, 0.70) 0%, rgba(195, 234, 255, 0.60) 59.76%)"
+            aboutbackground="linear-gradient(273deg, #E0FFEE -2.7%, #EAF2FF 81.17%)"
             comheader1={<Comheader1></Comheader1>}
           ></Aboutheader1>
           <Aboutheader2
@@ -102,20 +102,7 @@ function Operators() {
                     {data.headerCard.title.split("///")[1]}
                   </span>
                 </div>
-                <div
-                  style={{
-                    color: "#8F8F98",
-                    textAlign: "center",
-                    fontFamily: "Geomanist,sans-serif",
-                    fontSize: "1.125rem",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "1.875rem",
-                    maxWidth: "45.37rem",
-                  }}
-                >
-                  {data.headerCard.subTitle}
-                </div>
+
                 <div
                   className="mt-5"
                   style={{
@@ -180,7 +167,7 @@ function Operators() {
             {object1.map((a, b) => {
               return (
                 <div
-                  className={`${a.display} justify-content-between flex-column-reverse align-items-md-start align-items-center`}
+                  className={`${a.display} justify-content-between flex-md-row flex-column-reverse align-items-md-start align-items-center`}
                   key={b}
                   style={{ marginTop: "6rem" }}
                 >
@@ -386,4 +373,4 @@ function Operators() {
   );
 }
 
-export default Operators;
+export default Developers;

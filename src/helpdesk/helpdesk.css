@@ -14,6 +14,9 @@
   .helpsearch {
     width: 40.125rem;
   }
+  .helpsearch1 {
+    width: 40.125rem;
+  }
 }
 @media (max-width: 767px) {
   .wehelp {
@@ -22,6 +25,9 @@
   .helpsearch {
     width: 20.93rem;
     /* width: 100%; */
+  }
+  .helpsearch1 {
+    width: 20.93rem;
   }
 }
 
@@ -50,4 +56,15 @@
 
 .accordclass2 {
   width: 100%;
+}
+
+@media (min-width: 992px) {
+  .forindi {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 991px) {
+  .forindi {
+    font-size: 1.25rem;
+  }
 }

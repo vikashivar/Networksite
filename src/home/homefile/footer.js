@@ -118,13 +118,13 @@ function Footer() {
               <Link className="footerheading mb-5" to="">
                 Partners
               </Link>
-              <Link className="footeraccount" to="/">
+              <Link className="footeraccount" to="/operators">
                 Operators
               </Link>
-              <Link className="footeraccount" to="/">
+              <Link className="footeraccount" to="/developers">
                 Developers
               </Link>
-              <Link className="footeraccount" to="/">
+              <Link className="footeraccount" to="/investors">
                 Investors
               </Link>
             </div>

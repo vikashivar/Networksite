@@ -14,6 +14,11 @@
   }
    */
 }
+@media (min-width: 768px) {
+  .champion {
+    max-width: 28.56rem;
+  }
+}
 @media (min-width: 992px) {
   .logoheightwidth1 {
     max-width: 33.18rem;
@@ -103,5 +108,17 @@
   .Discussion {
     width: 16.937rem;
     height: 3.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .inthe {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .inthe {
+    font-size: 2rem;
   }
 }
