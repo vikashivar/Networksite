@@ -13,6 +13,7 @@ import Footer from "../home/homefile/footer";
 import { wait } from "@testing-library/user-event/dist/utils";
 import z1 from "./z1.png";
 import z2 from "./z2.png";
+import Inpp from "./inpp";
 
 function Investors() {
   const [data, setData] = useState();
@@ -27,7 +28,6 @@ function Investors() {
     }
     api1();
   }, []);
-  console.log(data);
 
   const object1 = [
     {
@@ -170,24 +170,7 @@ function Investors() {
                   {data.headerCard.description}
                 </div>
                 <div className="d-flex flex-md-row flex-column justify-content-center mt-5 pt-3">
-                  <a
-                    href={data.headerCard.primaryButtonLink}
-                    className="d-flex justify-content-center align-items-center ms-md-4 mt-md-0 mt-4 jointhediscussion"
-                    style={{
-                      background: "#4e59e7",
-                      borderRadius: "3.125rem",
-                      boxShadow: "0px 20px 50px 0px rgba(78,86,231,0.31)",
-                      color: "#FFF",
-                      textAlign: "center",
-                      fontFamily: "Geomanist,sans-serif",
-                      fontSize: "1.125rem",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "normal",
-                    }}
-                  >
-                    {data.headerCard.primaryButtonText}
-                  </a>
+                  <Inpp></Inpp>
                 </div>
               </div>
             }
