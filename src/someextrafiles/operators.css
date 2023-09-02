@@ -122,3 +122,27 @@
     font-size: 2rem;
   }
 }
+
+@media (min-width: 992px) {
+  .relleno {
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .relleno {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+}
+
+#delectc:focus-visible {
+  outline: -webkit-focus-ring-color auto 1px;
+}
+#delectc {
+  width: 14.68rem;
+  height: 3.312rem;
+  border-radius: 1rem;
+  border: 2px solid #dce2ff;
+  padding: 0rem 1rem;
+}

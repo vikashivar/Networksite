@@ -38,6 +38,7 @@ import Helpdeskarticle from "./helpdesk/helpdeskarticle";
 import Developers from "./someextrafiles/developers";
 import Investors from "./someextrafiles/investors";
 import Inpp from "./someextrafiles/inpp";
+import Termofuse from "./someextrafiles/termofuse";
 const homeapi = createContext();
 
 function App() {
@@ -94,7 +95,7 @@ function App() {
               element={<Developers></Developers>}
             ></Route>
             <Route path="investors" element={<Investors></Investors>}></Route>
-            <Route path="inpp" element={<Inpp></Inpp>}></Route>
+            <Route path="use" element={<Termofuse></Termofuse>}></Route>
           </Routes>
         </BrowserRouter>
       </homeapi.Provider>

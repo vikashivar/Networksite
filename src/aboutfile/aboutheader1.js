@@ -47,7 +47,9 @@ function Aboutheader1(props) {
       >
         {props.title}
       </div>
-      <div>{props.detail}</div>
+      <div className="mx-md-5 px-md-5" style={{ textAlign: "center" }}>
+        {props.detail}
+      </div>
     </div>
   );
 }
